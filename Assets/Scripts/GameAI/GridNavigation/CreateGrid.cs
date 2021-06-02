@@ -173,8 +173,8 @@ namespace GameAICourse {
 
 
             pathEdges = new List<List<int>>();
-            int col = (int) System.Math.Round(canvasWidth / cellWidth);
-            int row = (int) System.Math.Round(canvasHeight / cellWidth);
+            int col = (int) System.Math.Floor(canvasWidth / cellWidth);
+            int row = (int) System.Math.Floor(canvasHeight / cellWidth);
             pathNodes = new List<Vector2>();
 
 
@@ -232,7 +232,7 @@ namespace GameAICourse {
 				}
 					
 			}
-			Debug.Log(conn);
+			//Debug.Log(conn);
 
 
 			//example of node placed in center of cell
@@ -267,10 +267,10 @@ namespace GameAICourse {
             // also ignoring the world boundary defined by canvasOrigin and canvasWidth and canvasHeight
           
             
-            int col = (int)System.Math.Round(canvasWidth / cellWidth);
-            int row = (int)System.Math.Round(canvasHeight / cellWidth);
+            int col = (int)System.Math.Floor(canvasWidth / cellWidth);
+            int row = (int)System.Math.Floor(canvasHeight / cellWidth);
             grid = new bool[col,row];
-            grid[0, 0] = true;
+            
      
 
             for (int j = 0; j < col; j++)

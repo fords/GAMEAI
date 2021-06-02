@@ -1,17 +1,18 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/Tests/GridTest.cs">
     <Files>
-      <File FileName="Assets/Scripts/Framework/Obstacles.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="169" Column="15" />
+      <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
       <File FileName="Assets/Scripts/Framework/TraverseDirection.cs" />
       <File FileName="Assets/Scripts/Framework/Polygon.cs" />
       <File FileName="Assets/Scripts/Framework/ClickManager.cs" />
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" />
       <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
       <File FileName="Assets/Scripts/Framework/MoveBall.cs" />
       <File FileName="Assets/Scripts/GameAIPathPlanning.asmdef" />
       <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
       <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
+      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -22,8 +23,9 @@
                 <Node name="Config" expanded="True" />
                 <Node name="Framework" expanded="True" />
                 <Node name="GameAI" expanded="True">
-                  <Node name="GridNavigation" expanded="True">
-                    <Node name="CreateGrid.cs" selected="True" />
+                  <Node name="GridNavigation" expanded="True" />
+                  <Node name="Tests" expanded="True">
+                    <Node name="GridTest.cs" selected="True" />
                   </Node>
                 </Node>
               </Node>
@@ -31,17 +33,22 @@
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="d78f4c84-7b0d-4ce7-8495-237214e34993" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="4580532a-4c8f-450e-bb48-3ddf6b4fa4c4" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>
   </DisabledProjects>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint enabled="false" file="/Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" relfile="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" line="71" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
 </Properties>
