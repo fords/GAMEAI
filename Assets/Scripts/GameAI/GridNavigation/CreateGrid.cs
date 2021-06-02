@@ -100,128 +100,64 @@ namespace GameAICourse {
                 {
                     return true;
                 }
-                //if (y < row - 1 && grid[x, y + 1])
-                //{
-                //    return true;
-                //}
-                //if (y > 0 && grid[x, y - 1])
-                //{
-                //    return true;
-                //}
-                //if (x > 0 && grid[x - 1, y])
-                //{
-                //    return true;
-                //}
-                //if (x < col - 1 && grid[x + 1, y])
-                //{
-                //    return true;
-                //}
+ 
 
             }
-            return false;
-            // up
+            if (conn == GridConnectivity.EightWay) //  x = col, y = row
 
-                /* if (dir == TraverseDirection.Up && y + 1 < row && x < col && grid[x, y + 1])
-                {
-                    return true;
-                }
-                //down
-                else if (dir == TraverseDirection.Down && y - 1 > 0 && x < col && grid[x, y - 1])
-                {
-                    return true;
-                }
-                // left 
-                else if (dir == TraverseDirection.Left && y < row && x - 1 > 0 && grid[x - 1, y])
-                {
-                    return true;
-                }
-                // right
-                else if (dir == TraverseDirection.Right && y < row && x + 1 < col && grid[x + 1, y])
-                {
-                    return true;
-                }
-
-                if (conn == GridConnectivity.FourWay) //  x = col, y = row
-                {
+            // direct check,  1 up - left 2 up - right
+            //  3 down-left, 4 down-right
+             {
+                
+                switch (dir) {
 
                     // upleft
-                    if (dir == TraverseDirection.UpLeft)
-                    {
-                        if (y + 1 < row && x - 1 > 0 && grid[x, y + 1] && grid[x - 1, y + 1]) { return true; }
-                        else if (y + 1 < row && x - 1 > 0 && grid[x - 1, y] && grid[x - 1, y + 1]) { return true; }
-
-                    }
-                    //upright
-                    else if (dir == TraverseDirection.UpRight)
-                    {
-                        if (y + 1 < row && x + 1 < col && grid[x, y + 1] && grid[x + 1, y + 1]) { return true; }
-                        else if (y + 1 < row && x + 1 < col && grid[x + 1, y] && grid[x + 1, y + 1]) { return true; }
-
-                    }
-
-                    //downleft
-                    else if (dir == TraverseDirection.DownLeft)
-                    {
-                        if (y - 1 > 0 && x - 1 > 0 && grid[x - 1, y] && grid[x - 1, y - 1]) { return true; }
-                        else if (y - 1 > 0 && x - 1 > 0 && grid[x, y - 1] && grid[x - 1, y - 1]) { return true; }
-                    }
-
-                    //downright
-                    else if (dir == TraverseDirection.DownRight)
-                    {
-                        if (y - 1 > 0 && x + 1 < col && grid[x + 1, y] && grid[x + 1, y - 1]) { return true; }
-                        else if (y - 1 > 0 && x + 1 < col && grid[x, y - 1] && grid[x + 1, y - 1]) { return true; }
-                    }
-
-                    else
-                    {
-                        return false;
-                    }
-                }
-                else // eightway  // if eighway , direct check,  1 up-left 2 up-right
-                     //  3 down-left, 4 down-right
-                {
-                    // upleft
-                    if (dir == TraverseDirection.UpLeft)
+                    case TraverseDirection.UpLeft:
                     {
                         if (y + 1 < row && x - 1 > 0 && grid[x - 1, y + 1]) { return true; }
-
+                            break;
                     }
+
                     //upright
-                    else if (dir == TraverseDirection.UpRight)
+                    case TraverseDirection.UpRight:
                     {
                         if (y + 1 < row && x + 1 < col && grid[x + 1, y + 1]) { return true; }
+                            break;
 
                     }
 
                     //downleft
-                    else if (dir == TraverseDirection.DownLeft)
+                    case TraverseDirection.DownLeft:
                     {
-                        if (y - 1 > 0 && x - 1 > 0 && grid[x - 1, y - 1]) { return true; }
-
+                         if (y - 1 > 0 && x - 1 > 0 && grid[x - 1, y - 1]) { return true; }
+                            break;
                     }
 
                     //downright
-                    else if (dir == TraverseDirection.DownRight)
+                    case TraverseDirection.DownRight:
                     {
                         if (y - 1 > 0 && x + 1 < col && grid[x + 1, y - 1]) { return true; }
-
+                            break;
                     }
-
+                    default: break;
                 }
+                
 
-                return false; */
-        }
+             }
+            return false;
+		
+			
+		}
 
 
-        // CreatePathNetworkFromGrid(): Creates a path network from a grid according to traversability
-        // from one node to an adjacent node. Each node should be centered in the cell.
-        // Edges from A to B should always have a matching B to A edge
-        // pathNodes: a list of graph nodes, centered on each cell
-        // pathEdges: graph adjacency list for each graph node. cooresponding index of pathNodes to match
-        //      node with its edge list. All nodes must have an edge list (no null list)
-        //      entries in each edge list are indices into pathNodes
-        public static void CreatePathGraphFromGrid(
+		// CreatePathNetworkFromGrid(): Creates a path network from a grid according to traversability
+		// from one node to an adjacent node. Each node should be centered in the cell.
+		// Edges from A to B should always have a matching B to A edge
+		// pathNodes: a list of graph nodes, centered on each cell
+		// pathEdges: graph adjacency list for each graph node. cooresponding index of pathNodes to match
+		//      node with its edge list. All nodes must have an edge list (no null list)
+		//      entries in each edge list are indices into pathNodes
+		public static void CreatePathGraphFromGrid(
             Vector2 canvasOrigin, float canvasWidth, float canvasHeight, float cellWidth,
             GridConnectivity conn,
             bool[,] grid, out List<Vector2> pathNodes, out List<List<int>> pathEdges
@@ -257,96 +193,44 @@ namespace GameAICourse {
                     {
 
                         int index = j + i * col;
-						//code using Istraversable working fine
-						//if (Istraversable(grid, j, i, TraverseDirection.Up, GridConnectivity.FourWay))
-						//{
-						//    tempEdge.Add(index + col);
-						//}
-						//if (Istraversable(grid, j, i, TraverseDirection.Down, GridConnectivity.FourWay))
-						//{
-						//    tempEdge.Add(index - col);
-						//}
-						//if (Istraversable(grid, j, i, TraverseDirection.Left, GridConnectivity.FourWay))
-						//{
-						//    tempEdge.Add(index - 1);
-						//}
-						//if (Istraversable(grid, j, i, TraverseDirection.Right, GridConnectivity.FourWay))
-						//{
-						//    tempEdge.Add(index + 1);
-
-						//}
-
-						if (i < row - 1 && grid[j, i + 1])
+						//code using Istraversable 
+						if (Istraversable(grid, j, i, TraverseDirection.Up, conn))
 						{
 							tempEdge.Add(index + col);
 						}
-						if (i > 0 && grid[j, i - 1])
+						if (Istraversable(grid, j, i, TraverseDirection.Down, conn))
 						{
 							tempEdge.Add(index - col);
 						}
-						if (j > 0 && grid[j - 1, i])
+						if (Istraversable(grid, j, i, TraverseDirection.Left, conn))
 						{
 							tempEdge.Add(index - 1);
 						}
-						if (j < col - 1 && grid[j + 1, i])
+						if (Istraversable(grid, j, i, TraverseDirection.Right, conn))
 						{
 							tempEdge.Add(index + 1);
-						}
 
-					}
+						}
+                        if (Istraversable(grid, j, i, TraverseDirection.UpLeft, GridConnectivity.EightWay))
+                        {
+                            tempEdge.Add(index + col - 1);
+                        }
+                        if (Istraversable(grid, j, i, TraverseDirection.UpRight, GridConnectivity.EightWay))
+                        {
+                            tempEdge.Add(index + col + 1);
+                        }
+                        if (Istraversable(grid, j, i, TraverseDirection.DownLeft, GridConnectivity.EightWay))
+                        {
+                            tempEdge.Add(index - col - 1);
+                        }
+                        if (Istraversable(grid, j, i, TraverseDirection.DownRight, GridConnectivity.EightWay))
+                        {
+                            tempEdge.Add(index - col + 1);
+                        }
+                    }
 					pathEdges.Add(tempEdge);
 				}
-					//if (Istraversable(grid, j, i, TraverseDirection.Up, GridConnectivity.FourWay))
-					//{
-					//    tempEdge.Add(index + col);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Down, GridConnectivity.FourWay))
-					//{
-					//    tempEdge.Add(index - col);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Left, GridConnectivity.FourWay))
-					//{
-					//    tempEdge.Add(index - 1);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Right, GridConnectivity.FourWay))
-					//{
-					//    tempEdge.Add(index + 1);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Up, GridConnectivity.EightWay))
-					//{
-					//    tempEdge.Add(index + col);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Down, GridConnectivity.EightWay))
-					//{
-					//    tempEdge.Add(index - col);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Left, GridConnectivity.EightWay))
-					//{
-					//    tempEdge.Add(index - 1);
-					//}
-					//if (Istraversable(grid, j, i, TraverseDirection.Right, GridConnectivity.EightWay))
-					//{
-					//    tempEdge.Add(index + 1);
-					//}
-					//        if (Istraversable(grid, j, i, TraverseDirection.UpLeft, GridConnectivity.EightWay))
-					//        {
-					//            tempEdge.Add(index + col - 1);
-					//        }
-					//        if (Istraversable(grid, j, i, TraverseDirection.UpRight, GridConnectivity.EightWay))
-					//        {
-					//            tempEdge.Add(index + col + 1);
-					//        }
-					//        if (Istraversable(grid, j, i, TraverseDirection.DownLeft, GridConnectivity.EightWay))
-					//        {
-					//            tempEdge.Add(index - col - 1);
-					//        }
-					//        if (Istraversable(grid, j, i, TraverseDirection.DownRight, GridConnectivity.EightWay))
-					//        {
-					//            tempEdge.Add(index - col + 1);
-					//        }
-					//    }
-					//    pathEdges.Add(tempEdge);
-					//}
+					
 				}
                
 
@@ -381,18 +265,12 @@ namespace GameAICourse {
 
             // also ignoring the world boundary defined by canvasOrigin and canvasWidth and canvasHeight
           
-            Debug.Log("Create function");
-            // grid [col, row]
+            
             int col = (int)System.Math.Round(canvasWidth / cellWidth);
             int row = (int)System.Math.Round(canvasHeight / cellWidth);
             grid = new bool[col,row];
             grid[0, 0] = true;
-            //grid = new bool[(int)System.Math.Round(canvasWidth / cellWidth), (int)System.Math.Round(canvasHeight / cellWidth)]; // new bool[1, 1];
-            //Debug.Log("width " + canvasWidth);
-            //Debug.Log("height " + canvasHeight);
-            //Debug.Log("cell " + cellWidth);
-            //Debug.Log(col);
-            //Debug.Log(row);
+     
 
             for (int j = 0; j < col; j++)
             {
@@ -434,19 +312,11 @@ namespace GameAICourse {
 
                             Vector2Int ptConverted = Convert(pt);
 
-
-
                             if (PointInsideBoundingBox(minBound, maxBound, ptConverted)) //
                             {
                                 grid[j, i] = false;
                             }
-                            //if (pt[1] > startingRow && pt[1] < startingRow + cellWidth
-                            //	&& pt[0] > startingCol && pt[0] < startingCol + cellWidth)
-                            //{
-                            //	grid[j, i] = false;
-                            //}
-                            //Debug.Log("obstacle" +  pt[0] + " , " +  pt[1]);
-
+      
 
                         }
                         // points inside obstacle i.e. obstacle cover them completely partialy ( check four points of cell if inside polygon)
@@ -468,23 +338,17 @@ namespace GameAICourse {
                             grid[j, i] = false;
                         }
 						//  obstacle lines intersect cells is covered by isinsidePolygon method
-						// TODO obstacle polygon  is smaller than cell
+						//  obstacle polygon  is smaller than cell
 						if (obs.MinBounds.x < startingCol  && obs.MaxBounds.x > startingCol + cellWidth && obs.MinBounds.y > startingRow && obs.MaxBounds.y < startingRow + cellWidth)//obs.MinBounds.y
 						{
 							grid[j, i] = false;
 						}
-						//Intersects
-                        // TODO what if one obstacle is inside cell
-						// min southwest , max 
-						// cell edge on obstacel edge overlap Diagram 7
+				
 
 					}
 				}
 			}
-            //grid[0, 0] = true;
-            
-            //grid[col-2, row-1] = true;
-
+ 
 
         }
 
