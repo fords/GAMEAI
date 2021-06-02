@@ -111,11 +111,11 @@
     <Compile Include="Assets\Scripts\Framework\UVAdjustment.cs" />
     <Compile Include="Assets\Scripts\Framework\Utils.cs" />
     <Compile Include="Assets\Scripts\Framework\VisualizeTriangle.cs" />
-    <Compile Include="Assets\Scripts\GameAIStudentWork\AStar\AStarPathSearchImpl.cs" />
-    <Compile Include="Assets\Scripts\GameAIStudentWork\GridNavigation\CreateGrid.cs" />
-    <Compile Include="Assets\Scripts\GameAIStudentWork\Navmesh\CreateNavMesh.cs" />
-    <Compile Include="Assets\Scripts\GameAIStudentWork\PathNetwork\CreatePathNetwork.cs" />
-    <Compile Include="Assets\Scripts\GameAIStudentWork\PathRefinement\PathRefinement.cs" />
+    <Compile Include="Assets\Scripts\GameAI\AStar\AStarPathSearchImpl.cs" />
+    <Compile Include="Assets\Scripts\GameAI\GridNavigation\CreateGrid.cs" />
+    <Compile Include="Assets\Scripts\GameAI\Navmesh\CreateNavMesh.cs" />
+    <Compile Include="Assets\Scripts\GameAI\PathNetwork\CreatePathNetwork.cs" />
+    <Compile Include="Assets\Scripts\GameAI\PathRefinement\PathRefinement.cs" />
     <Reference Include="UnityEngine">
       <HintPath>/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

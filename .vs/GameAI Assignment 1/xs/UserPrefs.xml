@@ -1,12 +1,11 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAIStudentWork/GridNavigation/CreateGrid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAIStudentWork/GridNavigation/CreateGrid.cs" Line="428" Column="25" />
-      <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
+      <File FileName="Assets/Scripts/Framework/Obstacles.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Framework/TraverseDirection.cs" />
-      <File FileName="Assets/Scripts/GameAIStudentWork/Tests/AStarTest.cs" />
       <File FileName="Assets/Scripts/Framework/Polygon.cs" />
       <File FileName="Assets/Scripts/Framework/ClickManager.cs" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" />
       <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
       <File FileName="Assets/Scripts/Framework/MoveBall.cs" />
@@ -22,14 +21,10 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Config" expanded="True" />
                 <Node name="Framework" expanded="True" />
-                <Node name="GameAIStudentWork" expanded="True">
+                <Node name="GameAI" expanded="True">
                   <Node name="GridNavigation" expanded="True">
                     <Node name="CreateGrid.cs" selected="True" />
                   </Node>
-                  <Node name="Navmesh" expanded="True" />
-                  <Node name="PathNetwork" expanded="True" />
-                  <Node name="PathRefinement" expanded="True" />
-                  <Node name="Tests" expanded="True" />
                 </Node>
               </Node>
             </Node>
