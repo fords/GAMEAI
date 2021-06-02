@@ -211,19 +211,19 @@ namespace GameAICourse {
 							tempEdge.Add(index + 1);
 
 						}
-                        if (Istraversable(grid, j, i, TraverseDirection.UpLeft, GridConnectivity.EightWay))
+                        if (conn == GridConnectivity.EightWay && Istraversable(grid, j, i, TraverseDirection.UpLeft, GridConnectivity.EightWay))
                         {
                             tempEdge.Add(index + col - 1);
                         }
-                        if (Istraversable(grid, j, i, TraverseDirection.UpRight, GridConnectivity.EightWay))
+                        if (conn == GridConnectivity.EightWay && Istraversable(grid, j, i, TraverseDirection.UpRight, GridConnectivity.EightWay))
                         {
                             tempEdge.Add(index + col + 1);
                         }
-                        if (Istraversable(grid, j, i, TraverseDirection.DownLeft, GridConnectivity.EightWay))
+                        if (conn == GridConnectivity.EightWay && Istraversable(grid, j, i, TraverseDirection.DownLeft, GridConnectivity.EightWay))
                         {
                             tempEdge.Add(index - col - 1);
                         }
-                        if (Istraversable(grid, j, i, TraverseDirection.DownRight, GridConnectivity.EightWay))
+                        if (conn == GridConnectivity.EightWay &&  Istraversable(grid, j, i, TraverseDirection.DownRight, GridConnectivity.EightWay))
                         {
                             tempEdge.Add(index - col + 1);
                         }
@@ -231,20 +231,21 @@ namespace GameAICourse {
 					pathEdges.Add(tempEdge);
 				}
 					
-				}
-               
+			}
+			Debug.Log(conn);
 
-            //example of node placed in center of cell
-            
 
-            //initalization of a path edge that corresponds to same index pathNode
-            
+			//example of node placed in center of cell
 
-            //only one node, so can't be connected to anything, but we still initialize
-            //to an empty list. Null not allowed!
-            //pathEdges.Add(new List<int>());
 
-        }
+			//initalization of a path edge that corresponds to same index pathNode
+
+
+			//only one node, so can't be connected to anything, but we still initialize
+			//to an empty list. Null not allowed!
+			//pathEdges.Add(new List<int>());
+
+		}
 
         // Create(): Creates a grid lattice discretized space for navigation.
         // canvasOrigin: bottom left corner of navigable region in world coordinates
@@ -280,13 +281,6 @@ namespace GameAICourse {
                 }
             }
 
-
-
-                    //if (grid == null || grid.Rank != 2)
-                    //{
-                    //    return;
-                    //}
-                    //Vector2[] pts;
             for ( int i = 0; i < row; i++) // row
 			{
                 for ( int j = 0; j < col; j++) // col
