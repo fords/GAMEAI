@@ -417,12 +417,12 @@ namespace GameAICourse {
                     float startingCol = j * cellWidth + canvasOrigin[0];
                     float startingRow = i * cellWidth + canvasOrigin[1];
 
-                    int miny = Convert(startingCol) + 3;
-                    int minx = Convert(startingRow) + 3;
+                    int miny = Convert(startingCol) + 1;
+                    int minx = Convert(startingRow) + 1;
                     Vector2Int minBound = new Vector2Int(miny, minx);
 
-                    int maxy = Convert(startingCol + cellWidth) - 3;
-                    int maxx = Convert(startingRow + cellWidth) - 3;
+                    int maxy = Convert(startingCol + cellWidth) - 1;
+                    int maxx = Convert(startingRow + cellWidth) - 1;
                     Vector2Int maxBound = new Vector2Int(maxy, maxx);
 
                     foreach (Polygon obs in obstacles)
