@@ -1,15 +1,15 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/Tests/GridTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="86" Column="33" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="210" Column="8" />
       <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
       <File FileName="Assets/Scripts/Framework/Polygon.cs" />
       <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
       <File FileName="Assets/Scripts/GameAIPathPlanning.asmdef" />
       <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
       <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
-      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" Line="46" Column="1" />
-      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" Line="72" Column="28" />
+      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" />
+      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" />
       <File FileName="Assets/Scripts/GameAI/Tests/PathNetworkTest.cs" />
       <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" />
     </Files>
@@ -37,7 +37,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="e42355c3-ed49-44c2-a7e6-330070df113b" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="d1347d0e-84f2-4a61-8edb-29f72098adf1" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>

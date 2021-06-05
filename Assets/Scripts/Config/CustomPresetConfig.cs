@@ -24,7 +24,7 @@ public class CustomPresetConfig : PresetConfig
 
         ObstacleConfig[] obstacleConfigs =
         {
-            new ObstacleConfig(ObstacleType.Cube, new Vector2(0f, 0f), new Vector2(1.2f, 1.2f), 0f)
+            new ObstacleConfig(ObstacleType.Cube, new Vector2(-3f, 0f), new Vector2(1.2f, 1.2f), 0f)
         };
 
 
@@ -42,7 +42,8 @@ public class CustomPresetConfig : PresetConfig
 
         for (int i = 0; i < pathNodePositions.Length; ++i)
             pathNodePositions[i] = pathNodePositions[i] + origin;
-
+        //Debug.Log("inside secene 1");
+        
         return new SceneConfig(new Vector2(10f, 10f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 1f, 0, 670238407);
 
     }
