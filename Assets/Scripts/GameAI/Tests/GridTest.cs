@@ -41,7 +41,9 @@ namespace Tests
         // TODO You probably want some more test cases here
         [TestCase(0f, 0f, 1f, 1f, 1f)]
         [TestCase(0f, 0f, 1f, 1f, 0.25f)]
-        [TestCase(-0.5f, -0.5f, 1.0f, 1.0f, 0.22f, 4, 4)]
+        [TestCase(-0.5f,-0.5f,1.0f,1.0f,0.22f)] // grid size 4
+        [TestCase(-3.0f, 88.0f, 4.0f, 10.2f, 0.42f)] // grid size 9
+        //[TestCase(-0.5f, -0.5f, 1.0f, 1.0f, 0.22f, 4, 4)]
         public void TestEmptyGrid(float originx, float originy, float width, float height, float cellSize)
         {
             
@@ -79,8 +81,8 @@ namespace Tests
             Assert.That(grid, Has.All.True,
                 "There aren't any obstacles to block the grid cells!");
 
-            // TODO This method can be extended with more rigorous testing...
-
+			Assert.That(grid.GetLength(0) , Is.EqualTo(System.Math.Floor(width / cellSize)), "Wrong grid size");
+            Assert.That(grid.GetLength(1), Is.EqualTo(System.Math.Floor(height / cellSize)), "Wrong grid size");
         }
 
 

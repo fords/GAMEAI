@@ -114,7 +114,7 @@ namespace GameAICourse {
                     // upleft
                     case TraverseDirection.UpLeft:
                     {
-                        if (y + 1 < row && x - 1 > 0 && grid[x - 1, y + 1]) { return true; }
+                        if (y + 1 < row && x - 1 >= 0 && grid[x - 1, y + 1]) { return true; }
                             break;
                     }
 
@@ -129,14 +129,14 @@ namespace GameAICourse {
                     //downleft
                     case TraverseDirection.DownLeft:
                     {
-                         if (y - 1 > 0 && x - 1 > 0 && grid[x - 1, y - 1]) { return true; }
+                         if (y - 1 >= 0 && x - 1 >= 0 && grid[x - 1, y - 1]) { return true; }
                             break;
                     }
 
                     //downright
                     case TraverseDirection.DownRight:
                     {
-                        if (y - 1 > 0 && x + 1 < col && grid[x + 1, y - 1]) { return true; }
+                        if (y - 1 >= 0 && x + 1 < col && grid[x + 1, y - 1]) { return true; }
                             break;
                     }
                     default: break;
