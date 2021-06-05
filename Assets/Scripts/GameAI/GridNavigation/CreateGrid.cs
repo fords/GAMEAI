@@ -81,22 +81,22 @@ namespace GameAICourse {
 			}
             if (grid[x, y]) // j col i row 
             {
-                if (dir == TraverseDirection.Up && y + 1 < row && x < col && grid[x, y + 1])
+                if (dir == TraverseDirection.Up && y + 1 < row && grid[x, y + 1])
                 {
                     return true;
                 }
                 //down
-                else if (dir == TraverseDirection.Down && y - 1 > 0 && x < col && grid[x, y - 1])
+                else if (dir == TraverseDirection.Down && y - 1 >= 0 &&  grid[x, y - 1])
                 {
                     return true;
                 }
                 // left 
-                else if (dir == TraverseDirection.Left && y < row && x - 1 > 0 && grid[x - 1, y])
+                else if (dir == TraverseDirection.Left &&  x - 1 >= 0 && grid[x - 1, y])
                 {
                     return true;
                 }
                 // right
-                else if (dir == TraverseDirection.Right && y < row && x + 1 < col && grid[x + 1, y])
+                else if (dir == TraverseDirection.Right &&  x + 1 < col && grid[x + 1, y])
                 {
                     return true;
                 }

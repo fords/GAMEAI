@@ -41,6 +41,7 @@ namespace Tests
         // TODO You probably want some more test cases here
         [TestCase(0f, 0f, 1f, 1f, 1f)]
         [TestCase(0f, 0f, 1f, 1f, 0.25f)]
+        [TestCase(-0.5f, -0.5f, 1.0f, 1.0f, 0.22f, 4, 4)]
         public void TestEmptyGrid(float originx, float originy, float width, float height, float cellSize)
         {
             

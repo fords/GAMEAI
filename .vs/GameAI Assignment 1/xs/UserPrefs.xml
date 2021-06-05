@@ -1,45 +1,43 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/Tests/GridTest.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="169" Column="15" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="346" Column="1" />
       <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
-      <File FileName="Assets/Scripts/Framework/TraverseDirection.cs" />
       <File FileName="Assets/Scripts/Framework/Polygon.cs" />
-      <File FileName="Assets/Scripts/Framework/ClickManager.cs" />
-      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" />
       <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
-      <File FileName="Assets/Scripts/Framework/MoveBall.cs" />
       <File FileName="Assets/Scripts/GameAIPathPlanning.asmdef" />
       <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
       <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
-      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" />
+      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" />
+      <File FileName="Assets/Scripts/GameAI/Tests/PathNetworkTest.cs" Line="34" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GameAI Assignment 1" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Config" expanded="True" />
-                <Node name="Framework" expanded="True" />
+                <Node name="Framework" expanded="True">
+                  <Node name="NavMesh" expanded="True" />
+                </Node>
                 <Node name="GameAI" expanded="True">
                   <Node name="GridNavigation" expanded="True" />
-                  <Node name="Tests" expanded="True">
-                    <Node name="GridTest.cs" selected="True" />
-                  </Node>
+                  <Node name="Navmesh" expanded="True" />
+                  <Node name="PathNetwork" expanded="True" />
+                  <Node name="Tests" expanded="True" />
                 </Node>
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
-      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="4580532a-4c8f-450e-bb48-3ddf6b4fa4c4" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="051b3bfe-a723-4405-b8ba-6ed2feabbc09" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>
