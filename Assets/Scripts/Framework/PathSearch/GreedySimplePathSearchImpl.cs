@@ -7,7 +7,7 @@ public class GreedySimplePathSearchImpl
     public static PathSearchResultType FindPathIncremental(List<Vector2> nodes, List<List<int>> edges, int startNodeIndex, int goalNodeIndex, int maxNumNodesToExplore, bool doInitialization, ref int currentNodeIndex, ref Dictionary<int, PathSearchNodeRecord> searchNodeRecords, ref SimplePriorityQueue<int, float> openNodes, ref HashSet<int> closedNodes, ref List<int> returnPath)
     {
         //Simple-greedy search doesn't leverage any meta data during its search, however we will still populate
-        //open and closed node lists for visualization purposes
+        //open and closed pathNode lists for visualization purposes
         var pathResult = PathSearchResultType.InProgress;
 
         if (nodes == null || startNodeIndex >= nodes.Count || goalNodeIndex >= nodes.Count ||

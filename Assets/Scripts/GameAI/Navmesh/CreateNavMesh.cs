@@ -104,8 +104,8 @@ namespace GameAICourse
         // navmeshPolygons: out param of the convex polygons of the navmesh (list). 
         //          These polys are passed out for visualization
         // pathNodes: a list of graph nodes, centered on each navmeshPolygon
-        // pathEdges: graph adjacency list for each graph node. cooresponding index of pathNodes to match
-        //      node with its edge list. All nodes must have an edge list (no null list)
+        // pathEdges: graph adjacency list for each graph pathNode. cooresponding index of pathNodes to match
+        //      pathNode with its edge list. All nodes must have an edge list (no null list)
         //      entries in each edge list are indices into pathNodes
 
         // NOTES:

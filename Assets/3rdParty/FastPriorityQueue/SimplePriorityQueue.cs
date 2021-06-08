@@ -94,43 +94,43 @@ namespace Priority_Queue
         /// <summary>
         /// Adds an item to the Node-cache to allow for many methods to be O(1) or O(log n)
         /// </summary>
-        private void AddToNodeCache(SimpleNode node)
+        private void AddToNodeCache(SimpleNode pathNode)
         {
-            if (node.Data == null)
+            if (pathNode.Data == null)
             {
-                _nullNodesCache.Add(node);
+                _nullNodesCache.Add(pathNode);
                 return;
             }
 
             IList<SimpleNode> nodes;
-            if (!_itemToNodesCache.TryGetValue(node.Data, out nodes))
+            if (!_itemToNodesCache.TryGetValue(pathNode.Data, out nodes))
             {
                 nodes = new List<SimpleNode>();
-                _itemToNodesCache[node.Data] = nodes;
+                _itemToNodesCache[pathNode.Data] = nodes;
             }
-            nodes.Add(node);
+            nodes.Add(pathNode);
         }
 
         /// <summary>
         /// Removes an item to the Node-cache to allow for many methods to be O(1) or O(log n) (assuming no duplicates)
         /// </summary>
-        private void RemoveFromNodeCache(SimpleNode node)
+        private void RemoveFromNodeCache(SimpleNode pathNode)
         {
-            if (node.Data == null)
+            if (pathNode.Data == null)
             {
-                _nullNodesCache.Remove(node);
+                _nullNodesCache.Remove(pathNode);
                 return;
             }
 
             IList<SimpleNode> nodes;
-            if (!_itemToNodesCache.TryGetValue(node.Data, out nodes))
+            if (!_itemToNodesCache.TryGetValue(pathNode.Data, out nodes))
             {
                 return;
             }
-            nodes.Remove(node);
+            nodes.Remove(pathNode);
             if (nodes.Count == 0)
             {
-                _itemToNodesCache.Remove(node.Data);
+                _itemToNodesCache.Remove(pathNode.Data);
             }
         }
 
@@ -171,7 +171,7 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Removes every node from the queue.
+        /// Removes every pathNode from the queue.
         /// O(n)
         /// </summary>
         public void Clear()
@@ -197,7 +197,7 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and returns it.
+        /// Removes the head of the queue (pathNode with minimum priority; ties are broken by order of insertion), and returns it.
         /// If queue is empty, throws an exception
         /// O(log n)
         /// </summary>
@@ -210,31 +210,31 @@ namespace Priority_Queue
                     throw new InvalidOperationException("Cannot call Dequeue() on an empty queue");
                 }
 
-                SimpleNode node =_queue.Dequeue();
-                RemoveFromNodeCache(node);
-                return node.Data;
+                SimpleNode pathNode =_queue.Dequeue();
+                RemoveFromNodeCache(pathNode);
+                return pathNode.Data;
             }
         }
 
         /// <summary>
-        /// Enqueue the item with the given priority, without calling lock(_queue) or AddToNodeCache(node)
+        /// Enqueue the item with the given priority, without calling lock(_queue) or AddToNodeCache(pathNode)
         /// </summary>
         /// <param name="item"></param>
         /// <param name="priority"></param>
         /// <returns></returns>
         private SimpleNode EnqueueNoLockOrCache(TItem item, TPriority priority)
         {
-            SimpleNode node = new SimpleNode(item);
+            SimpleNode pathNode = new SimpleNode(item);
             if (_queue.Count == _queue.MaxSize)
             {
                 _queue.Resize(_queue.MaxSize * 2 + 1);
             }
-            _queue.Enqueue(node, priority);
-            return node;
+            _queue.Enqueue(pathNode, priority);
+            return pathNode;
         }
 
         /// <summary>
-        /// Enqueue a node to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
+        /// Enqueue a pathNode to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
         /// This queue automatically resizes itself, so there's no concern of the queue becoming 'full'.
         /// Duplicates and null-values are allowed.
         /// O(log n)
@@ -253,15 +253,15 @@ namespace Priority_Queue
                     nodes = new List<SimpleNode>();
                     _itemToNodesCache[item] = nodes;
                 }
-                SimpleNode node = EnqueueNoLockOrCache(item, priority);
-                nodes.Add(node);
+                SimpleNode pathNode = EnqueueNoLockOrCache(item, priority);
+                nodes.Add(pathNode);
             }
         }
 
         /// <summary>
-        /// Enqueue a node to the priority queue if it doesn't already exist.  Lower values are placed in front. Ties are broken by first-in-first-out.
+        /// Enqueue a pathNode to the priority queue if it doesn't already exist.  Lower values are placed in front. Ties are broken by first-in-first-out.
         /// This queue automatically resizes itself, so there's no concern of the queue becoming 'full'.  Null values are allowed.
-        /// Returns true if the node was successfully enqueued; false if it already exists.
+        /// Returns true if the pathNode was successfully enqueued; false if it already exists.
         /// O(log n)
         /// </summary>
         public bool EnqueueWithoutDuplicates(TItem item, TPriority priority)
@@ -286,8 +286,8 @@ namespace Priority_Queue
                     nodes = new List<SimpleNode>();
                     _itemToNodesCache[item] = nodes;
                 }
-                SimpleNode node = EnqueueNoLockOrCache(item, priority);
-                nodes.Add(node);
+                SimpleNode pathNode = EnqueueNoLockOrCache(item, priority);
+                nodes.Add(pathNode);
                 return true;
             }
         }
@@ -308,7 +308,7 @@ namespace Priority_Queue
                 {
                     if (_nullNodesCache.Count == 0)
                     {
-                        throw new InvalidOperationException("Cannot call Remove() on a node which is not enqueued: " + item);
+                        throw new InvalidOperationException("Cannot call Remove() on a pathNode which is not enqueued: " + item);
                     }
                     removeMe = _nullNodesCache[0];
                     nodes = _nullNodesCache;
@@ -317,7 +317,7 @@ namespace Priority_Queue
                 {
                     if (!_itemToNodesCache.TryGetValue(item, out nodes))
                     {
-                        throw new InvalidOperationException("Cannot call Remove() on a node which is not enqueued: " + item);
+                        throw new InvalidOperationException("Cannot call Remove() on a pathNode which is not enqueued: " + item);
                     }
                     removeMe = nodes[0];
                     if (nodes.Count == 1)
@@ -345,7 +345,7 @@ namespace Priority_Queue
                 SimpleNode updateMe = GetExistingNode(item);
                 if (updateMe == null)
                 {
-                    throw new InvalidOperationException("Cannot call UpdatePriority() on a node which is not enqueued: " + item);
+                    throw new InvalidOperationException("Cannot call UpdatePriority() on a pathNode which is not enqueued: " + item);
                 }
                 _queue.UpdatePriority(updateMe, priority);
             }
@@ -366,7 +366,7 @@ namespace Priority_Queue
                 SimpleNode findMe = GetExistingNode(item);
                 if(findMe == null)
                 {
-                    throw new InvalidOperationException("Cannot call GetPriority() on a node which is not enqueued: " + item);
+                    throw new InvalidOperationException("Cannot call GetPriority() on a pathNode which is not enqueued: " + item);
                 }
                 return findMe.Priority;
             }
@@ -396,7 +396,7 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and sets it to first.
+        /// Removes the head of the queue (pathNode with minimum priority; ties are broken by order of insertion), and sets it to first.
         /// Useful for multi-threading, where the queue may become empty between calls to Contains() and Dequeue()
         /// Returns true if successful; false if queue was empty
         /// O(log n)
@@ -409,9 +409,9 @@ namespace Priority_Queue
                 {
                     if (_queue.Count > 0)
                     {
-                        SimpleNode node = _queue.Dequeue();
-                        first = node.Data;
-                        RemoveFromNodeCache(node);
+                        SimpleNode pathNode = _queue.Dequeue();
+                        first = pathNode.Data;
+                        RemoveFromNodeCache(pathNode);
                         return true;
                     }
                 }
@@ -515,9 +515,9 @@ namespace Priority_Queue
             lock (_queue)
             {
                 //Copy to a separate list because we don't want to 'yield return' inside a lock
-                foreach(var node in _queue)
+                foreach(var pathNode in _queue)
                 {
-                    queueData.Add(node.Data);
+                    queueData.Add(pathNode.Data);
                 }
             }
 
@@ -536,9 +536,9 @@ namespace Priority_Queue
                 // Check all items in cache are in the queue
                 foreach (IList<SimpleNode> nodes in _itemToNodesCache.Values)
                 {
-                    foreach (SimpleNode node in nodes)
+                    foreach (SimpleNode pathNode in nodes)
                     {
-                        if (!_queue.Contains(node))
+                        if (!_queue.Contains(pathNode))
                         {
                             return false;
                         }
@@ -546,9 +546,9 @@ namespace Priority_Queue
                 }
 
                 // Check all items in queue are in cache
-                foreach (SimpleNode node in _queue)
+                foreach (SimpleNode pathNode in _queue)
                 {
-                    if (GetExistingNode(node.Data) == null)
+                    if (GetExistingNode(pathNode.Data) == null)
                     {
                         return false;
                     }

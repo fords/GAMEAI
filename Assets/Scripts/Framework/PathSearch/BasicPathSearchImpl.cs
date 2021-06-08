@@ -159,7 +159,7 @@ public class BasicPathSearchImpl
 
                 }
 
-            } //foreach() edge processing of current node
+            } //foreach() edge processing of current pathNode
 
             openNodes.Remove(currentNodeIndex);
             closedNodes.Add(currentNodeIndex);
@@ -167,7 +167,7 @@ public class BasicPathSearchImpl
         if (openNodes.Count <= 0 && currentNodeIndex != goalNodeIndex)
         {
             pathResult = PathSearchResultType.Partial;
-            //find the closest node we looked at and use for partial path
+            //find the closest pathNode we looked at and use for partial path
             int closest = -1;
             float closestDist = float.MaxValue;
             foreach (var n in closedNodes)

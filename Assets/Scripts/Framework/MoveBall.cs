@@ -40,7 +40,7 @@ public class MoveBall : MonoBehaviour, IBallMover
 
     //IDiscretizedSpace discretizedSpace;
 
-    //the distance at which the path node is reached
+    //the distance at which the path pathNode is reached
     float epsilon = 0.01f;
 
     List<int> followPath;
@@ -721,17 +721,17 @@ public class MoveBall : MonoBehaviour, IBallMover
 
         float overlayOffset = 0.08f;
 
-        //Debug.Log($"Current node is: {currNode}");
+        //Debug.Log($"Current pathNode is: {currNode}");
 
         foreach (var nindex in openNodes)
         {
-            var node = nodes[nindex];
+            var pathNode = nodes[nindex];
 
             if (nindex == currNode)
             {
-                //Debug.Log($"Current node drawn: {currNode}");
+                //Debug.Log($"Current pathNode drawn: {currNode}");
                 // NOT part of the overlay texture!
-                CreateCurrentOverlayMarker(node, MarkerSize, overlayOffset);
+                CreateCurrentOverlayMarker(pathNode, MarkerSize, overlayOffset);
             }
 
             if (prevOpenNodes.Contains(nindex))
@@ -745,7 +745,7 @@ public class MoveBall : MonoBehaviour, IBallMover
             {
                 var pnode = nodes[pindex];
                 Vector2 flip = new Vector2(1f, -1f);
-                angle = Vector2.SignedAngle(Vector2.right, flip * (pnode - node));
+                angle = Vector2.SignedAngle(Vector2.right, flip * (pnode - pathNode));
                 directed = true;
             }
 
@@ -755,23 +755,23 @@ public class MoveBall : MonoBehaviour, IBallMover
             {
                 if (directed)
                 {
-                    //CreateDirectedMarkerLines(node, 0.1f, Color.white, angle);
+                    //CreateDirectedMarkerLines(pathNode, 0.1f, Color.white, angle);
 
 
                     if (nindex == this.nearestGoalNodeIndex)
                     {
-                        CreateEndDirectedMarker(node, MarkerSize, angle);
+                        CreateEndDirectedMarker(pathNode, MarkerSize, angle);
                     }
                     else
                     {
-                        CreateOpenDirectedMarker(node, MarkerSize, angle);
+                        CreateOpenDirectedMarker(pathNode, MarkerSize, angle);
                     }
 
                 }
                 else
                 {
-                    //CreateMarkerLines(node, 0.1f, Color.white, 0.01f);
-                    CreateOpenEmptyMarker(node, MarkerSize);
+                    //CreateMarkerLines(pathNode, 0.1f, Color.white, 0.01f);
+                    CreateOpenEmptyMarker(pathNode, MarkerSize);
                 }
             }
 
@@ -780,13 +780,13 @@ public class MoveBall : MonoBehaviour, IBallMover
 
         foreach(var nindex in closedNodes)
         {
-            var node = nodes[nindex];
+            var pathNode = nodes[nindex];
 
             if (nindex == currNode)
             {
-                //Debug.Log($"Current node drawn: {currNode}");
+                //Debug.Log($"Current pathNode drawn: {currNode}");
                 // NOT part of the overlay texture!
-                CreateCurrentOverlayMarker(node, MarkerSize, overlayOffset);
+                CreateCurrentOverlayMarker(pathNode, MarkerSize, overlayOffset);
             }
 
             if (prevClosedNodes.Contains(nindex))
@@ -800,7 +800,7 @@ public class MoveBall : MonoBehaviour, IBallMover
             {
                 var pnode = nodes[pindex];
                 Vector2 flip = new Vector2(1f, -1f);
-                angle = Vector2.SignedAngle(Vector2.right, flip*(pnode - node));
+                angle = Vector2.SignedAngle(Vector2.right, flip*(pnode - pathNode));
                 directed = true;
             }
 
@@ -808,23 +808,23 @@ public class MoveBall : MonoBehaviour, IBallMover
             {
                 if (directed)
                 {
-                    //CreateDirectedMarkerLines(node, 0.1f, Color.cyan, angle);
+                    //CreateDirectedMarkerLines(pathNode, 0.1f, Color.cyan, angle);
 
 
                     if (nindex == this.nearestGoalNodeIndex)
                     {
-                        CreateEndDirectedMarker(node, MarkerSize, angle);
+                        CreateEndDirectedMarker(pathNode, MarkerSize, angle);
                     }
                     else
                     {
-                        CreateClosedDirectedMarker(node, MarkerSize, angle);
+                        CreateClosedDirectedMarker(pathNode, MarkerSize, angle);
                     }
 
                 }
                 else
                 {
-                    //CreateMarkerLines(node, 0.1f, Color.white, 0.01f);
-                    CreateClosedEmptyMarker(node, MarkerSize);
+                    //CreateMarkerLines(pathNode, 0.1f, Color.white, 0.01f);
+                    CreateClosedEmptyMarker(pathNode, MarkerSize);
                 }
             }
 

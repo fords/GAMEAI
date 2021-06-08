@@ -5,8 +5,8 @@ namespace Priority_Queue
     public class FastPriorityQueueNode
     {
         /// <summary>
-        /// The Priority to insert this node at.  Must be set BEFORE adding a node to the queue (ideally just once, in the node's constructor).
-        /// Should not be manually edited once the node has been enqueued - use queue.UpdatePriority() instead
+        /// The Priority to insert this pathNode at.  Must be set BEFORE adding a pathNode to the queue (ideally just once, in the pathNode's constructor).
+        /// Should not be manually edited once the pathNode has been enqueued - use queue.UpdatePriority() instead
         /// </summary>
         public float Priority { get; protected internal set; }
 
@@ -17,7 +17,7 @@ namespace Priority_Queue
 
 #if DEBUG
         /// <summary>
-        /// The queue this node is tied to. Used only for debug builds.
+        /// The queue this pathNode is tied to. Used only for debug builds.
         /// </summary>
         public object Queue { get; internal set; }
 #endif

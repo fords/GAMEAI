@@ -151,11 +151,11 @@ namespace GameAICourse {
 
 
 		// CreatePathNetworkFromGrid(): Creates a path network from a grid according to traversability
-		// from one node to an adjacent node. Each node should be centered in the cell.
+		// from one pathNode to an adjacent pathNode. Each pathNode should be centered in the cell.
 		// Edges from A to B should always have a matching B to A edge
 		// pathNodes: a list of graph nodes, centered on each cell
-		// pathEdges: graph adjacency list for each graph node. cooresponding index of pathNodes to match
-		//      node with its edge list. All nodes must have an edge list (no null list)
+		// pathEdges: graph adjacency list for each graph pathNode. cooresponding index of pathNodes to match
+		//      pathNode with its edge list. All nodes must have an edge list (no null list)
 		//      entries in each edge list are indices into pathNodes
 		public static void CreatePathGraphFromGrid(
             Vector2 canvasOrigin, float canvasWidth, float canvasHeight, float cellWidth,
@@ -235,13 +235,13 @@ namespace GameAICourse {
 			//Debug.Log(conn);
 
 
-			//example of node placed in center of cell
+			//example of pathNode placed in center of cell
 
 
 			//initalization of a path edge that corresponds to same index pathNode
 
 
-			//only one node, so can't be connected to anything, but we still initialize
+			//only one pathNode, so can't be connected to anything, but we still initialize
 			//to an empty list. Null not allowed!
 			//pathEdges.Add(new List<int>());
 

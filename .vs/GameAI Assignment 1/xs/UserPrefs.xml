@@ -1,23 +1,23 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="210" Column="8" />
-      <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="313" Column="7" />
+      <File FileName="Assets/Scripts/Framework/Obstacles.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Framework/Polygon.cs" />
-      <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
+      <File FileName="Assets/Scripts/Framework/Obstacle.cs" Line="12" Column="1" />
       <File FileName="Assets/Scripts/GameAIPathPlanning.asmdef" />
-      <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
-      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
-      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" />
-      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" />
-      <File FileName="Assets/Scripts/GameAI/Tests/PathNetworkTest.cs" />
-      <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" />
+      <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" Line="246" Column="1" />
+      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" Line="1324" Column="46" />
+      <File FileName="Assets/Scripts/Framework/PathNetwork.cs" Line="194" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GameAI Assignment 1" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Config" expanded="True" />
                 <Node name="Framework" expanded="True">
@@ -26,7 +26,9 @@
                 <Node name="GameAI" expanded="True">
                   <Node name="GridNavigation" expanded="True" />
                   <Node name="Navmesh" expanded="True" />
-                  <Node name="PathNetwork" expanded="True" />
+                  <Node name="PathNetwork" expanded="True">
+                    <Node name="CreatePathNetwork.cs" selected="True" />
+                  </Node>
                   <Node name="Tests" expanded="True" />
                 </Node>
               </Node>
@@ -37,7 +39,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="d1347d0e-84f2-4a61-8edb-29f72098adf1" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="7f462516-9b2e-4464-a503-3f4e07ffabdc" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>
@@ -45,7 +47,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint enabled="false" file="/Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" relfile="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" line="71" column="1" />
+      <Breakpoint file="/Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" relfile="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" line="246" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MultiItemStartupConfigurations />
