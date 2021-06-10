@@ -14,7 +14,11 @@ public class CustomPresetConfig : PresetConfig
         SceneConfigs.Add(SC4());
         SceneConfigs.Add(SC5());
         SceneConfigs.Add(SC6());
-    }
+		SceneConfigs.Add(SC7());
+		//SceneConfigs.Add(SC8());
+		//SceneConfigs.Add(SC9());
+		//SceneConfigs.Add(SC6());
+	}
 
     SceneConfig SC0()
     {
@@ -260,38 +264,81 @@ public class CustomPresetConfig : PresetConfig
     }
 
 
+    // narrow tall (vertical)
+    SceneConfig SC7()
+    {
+
+        Vector2 origin = new Vector2(-1.6f, 1.2f);
+
+        ObstacleConfig[] obstacleConfigs =
+        {
+            new ObstacleConfig(ObstacleType.Cube, new Vector2(0.1f, -0.1f), new Vector2(0.1f, 7f), 0f),
+            new ObstacleConfig(ObstacleType.Cube, new Vector2(4.1f, 2.1f), new Vector2(1f, 8f), 0f),
+            new ObstacleConfig(ObstacleType.Cube, new Vector2(4.5f, -4.5f), new Vector2(1.5f, 1.5f), 90f),
+            new ObstacleConfig(ObstacleType.Cube, new Vector2(-4.5f, -1.5f), new Vector2(2.5f, 1.5f), 90f),
+            new ObstacleConfig(ObstacleType.SoftStar, new Vector2(-4.4f, -3.6f), new Vector2(1f, 1f), 30f),
+        };
+
+        for (int i = 0; i < obstacleConfigs.Length; ++i)
+        {
+            obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
+        }
+
+        Vector2[] pathNodePositions =
+            {
+                //new Vector2(0f, 3.1f),
+                new Vector2(8f, 3.1f),
+                new Vector2(-7f, 3f)
+            };
+
+
+        for (int i = 0; i < pathNodePositions.Length; ++i)
+            pathNodePositions[i] = pathNodePositions[i] + origin;
+
+
+
+        float ballSize = 1f;
+        var grid = DiscretizedSpace as GameGrid;
+
+        if (grid != null)
+        {
+            ballSize = 0.25f;
+        }
+
+        return new SceneConfig(new Vector2(20f, 10f), origin, origin + new Vector2(-6f, 3f), ballSize, obstacleConfigs, pathNodePositions, 0.25f, 15, 1827320275);
+    }
     //SceneConfig SC7()
     //{
 
-    //    Vector2 origin = new Vector2(10f, 10f);
+    //	Vector2 origin = new Vector2(10f, 10f);
 
-    //    ObstacleConfig[] obstacleConfigs =
-    //    {
-    //    };
+    //	ObstacleConfig[] obstacleConfigs =
+    //	{
+    //	};
 
-    //    for (int i = 0; i < obstacleConfigs.Length; ++i)
-    //    {
-    //        obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
-    //    }
-
-
-    //    Vector2[] pathNodePositions = {
-    //        new Vector2(8f, 0f),
-    //        new Vector2(4.9f, 0f),
-    //        new Vector2(-1.65f, -4f),
-    //        new Vector2(-1.65f, 2.7f),
-    //        new Vector2(3f, -4f),
-    //        new Vector2(3f, 3.2f),
-    //        new Vector2(0f, -2.2f),
-    //        new Vector2(-4f, 0f),
-    //    };
-
-    //    for (int i = 0; i < pathNodePositions.Length; ++i)
-    //        pathNodePositions[i] = pathNodePositions[i] + origin;
+    //	for (int i = 0; i < obstacleConfigs.Length; ++i)
+    //	{
+    //		obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
+    //	}
 
 
+    //	Vector2[] pathNodePositions = {
+    //		new Vector2(8f, 0f),
+    //		new Vector2(4.9f, 0f),
+    //		new Vector2(-1.65f, -4f),
+    //		new Vector2(-1.65f, 2.7f),
+    //		new Vector2(3f, -4f),
+    //		new Vector2(3f, 3.2f),
+    //		new Vector2(0f, -2.2f),
+    //		new Vector2(-4f, 0f),
+    //	};
 
-    //    return new SceneConfig(new Vector2(10f, 10f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
+    //	for (int i = 0; i < pathNodePositions.Length; ++i)
+    //		pathNodePositions[i] = pathNodePositions[i] + origin;
+
+
+
+    //	return new SceneConfig(new Vector2(10f, 10f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
 
     //}
 
@@ -299,71 +346,71 @@ public class CustomPresetConfig : PresetConfig
     //SceneConfig SC8()
     //{
 
-    //    Vector2 origin = new Vector2(10f, 10f);
+    //	Vector2 origin = new Vector2(10f, 10f);
 
-    //    ObstacleConfig[] obstacleConfigs =
-    //    {
-    //    };
+    //	ObstacleConfig[] obstacleConfigs =
+    //	{
+    //	};
 
-    //    for (int i = 0; i < obstacleConfigs.Length; ++i)
-    //    {
-    //        obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
-    //    }
+    //	for (int i = 0; i < obstacleConfigs.Length; ++i)
+    //	{
+    //		obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
+    //	}
 
-    //    Vector2[] pathNodePositions = {
-    //        new Vector2(8f, 0f),
-    //        new Vector2(4.9f, 0f),
-    //        new Vector2(-1.65f, -4f),
-    //        new Vector2(-1.65f, 2.7f),
-    //        new Vector2(3f, -4f),
-    //        new Vector2(3f, 3.2f),
-    //        new Vector2(0f, -2.2f),
-    //        new Vector2(-4f, 0f),
-    //    };
+    //	Vector2[] pathNodePositions = {
+    //		new Vector2(8f, 0f),
+    //		new Vector2(4.9f, 0f),
+    //		new Vector2(-1.65f, -4f),
+    //		new Vector2(-1.65f, 2.7f),
+    //		new Vector2(3f, -4f),
+    //		new Vector2(3f, 3.2f),
+    //		new Vector2(0f, -2.2f),
+    //		new Vector2(-4f, 0f),
+    //	};
 
-    //    for (int i = 0; i < pathNodePositions.Length; ++i)
-    //        pathNodePositions[i] = pathNodePositions[i] + origin;
-
-
-
-    //    return new SceneConfig(new Vector2(10f, 20f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
-
-    //}
-
-    //SceneConfig SC9()
-    //{
-
-    //    Vector2 origin = new Vector2(10f, 10f);
-
-    //    ObstacleConfig[] obstacleConfigs =
-    //    {
-    //    };
-
-    //    for (int i = 0; i < obstacleConfigs.Length; ++i)
-    //    {
-    //        obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
-    //    }
-
-    //    Vector2[] pathNodePositions = {
-    //        new Vector2(8f, 0f),
-    //        new Vector2(4.9f, 0f),
-    //        new Vector2(-1.65f, -4f),
-    //        new Vector2(-1.65f, 2.7f),
-    //        new Vector2(3f, -4f),
-    //        new Vector2(3f, 3.2f),
-    //        new Vector2(0f, -2.2f),
-    //        new Vector2(-4f, 0f),
-    //    };
-
-
-    //    for (int i = 0; i < pathNodePositions.Length; ++i)
-    //        pathNodePositions[i] = pathNodePositions[i] + origin;
+    //	for (int i = 0; i < pathNodePositions.Length; ++i)
+    //		pathNodePositions[i] = pathNodePositions[i] + origin;
 
 
 
-    //    return new SceneConfig(new Vector2(30f, 10f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
+    //	return new SceneConfig(new Vector2(10f, 20f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
 
     //}
+
+ //   SceneConfig SC8()
+	//{
+
+	//	Vector2 origin = new Vector2(10f, 10f);
+
+	//	ObstacleConfig[] obstacleConfigs =
+	//	{
+	//	};
+
+	//	for (int i = 0; i < obstacleConfigs.Length; ++i)
+	//	{
+	//		obstacleConfigs[i].pos = obstacleConfigs[i].pos + origin;
+	//	}
+
+	//	Vector2[] pathNodePositions = {
+	//		new Vector2(8f, 0f),
+	//		new Vector2(4.9f, 0f),
+	//		new Vector2(-1.65f, -4f),
+	//		new Vector2(-1.65f, 2.7f),
+	//		new Vector2(3f, -4f),
+	//		new Vector2(3f, 3.2f),
+	//		new Vector2(0f, -2.2f),
+	//		new Vector2(-4f, 0f),
+	//	};
+
+
+	//	for (int i = 0; i < pathNodePositions.Length; ++i)
+	//		pathNodePositions[i] = pathNodePositions[i] + origin;
+
+
+
+	//	return new SceneConfig(new Vector2(30f, 10f), origin, origin + new Vector2(-4f, -4f), 1f, obstacleConfigs, pathNodePositions, 10f, 0, 670238407);
+
+	//}
 
 
 

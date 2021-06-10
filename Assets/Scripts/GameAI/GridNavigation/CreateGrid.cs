@@ -173,8 +173,10 @@ namespace GameAICourse {
 
 
             pathEdges = new List<List<int>>();
-            int col = (int) System.Math.Floor(canvasWidth / cellWidth);
-            int row = (int) System.Math.Floor(canvasHeight / cellWidth);
+            int col = grid.GetLength(0);
+            int row = grid.GetLength(1);
+            //int col = (int) System.Math.Floor(canvasWidth / cellWidth);
+            //int row = (int) System.Math.Floor(canvasHeight / cellWidth);
             pathNodes = new List<Vector2>();
 
 
@@ -333,13 +335,20 @@ namespace GameAICourse {
                         }
 						//  obstacle lines intersect cells is covered by isinsidePolygon method
 						//  obstacle polygon  is smaller than cell
+                        //  case 1:narrow horizontal polygon
 						if (obs.MinBounds.x < startingCol  && obs.MaxBounds.x > startingCol + cellWidth && obs.MinBounds.y > startingRow && obs.MaxBounds.y < startingRow + cellWidth)//obs.MinBounds.y
 						{
 							grid[j, i] = false;
 						}
-				
 
-					}
+                        // case 2: narrow tall polygon
+                        if (obs.MinBounds.y < startingRow && obs.MaxBounds.y > startingRow + cellWidth && obs.MinBounds.x > startingCol  && obs.MaxBounds.x < startingCol + cellWidth)//obs.MinBounds.y
+                        {
+                            grid[j, i] = false;
+                        }
+
+
+                    }
 				}
 			}
  
