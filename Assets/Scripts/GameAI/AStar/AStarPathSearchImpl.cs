@@ -70,8 +70,6 @@ namespace GameAICourse
 			double y = System.Math.Pow((double)(nodeB[1] - nodeA[1]), (double)2.0);
 
 			return (float)System.Math.Pow(x + y, 0.5);
-			//return System.Math.Abs(nodeB[0] - nodeA[0]) + System.Math.Abs(nodeB[1] - nodeA[1]);
-			//return 0f;
 
 			//END STUDENT CODE
 		}
@@ -170,13 +168,8 @@ namespace GameAICourse
 
 						(searchNodeRecords[openSet[i]].EstimatedTotalCost + searchNodeRecords[openSet[i]].CostSoFar ==
 						searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar &&
-						searchNodeRecords[openSet[i]].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost)
+						searchNodeRecords[openSet[i]].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost))
 
-						)
-					//if ( G(nodes[openSet[i]], nodes[goalNodeIndex] ) + H(nodes[openSet[i]], nodes[goalNodeIndex]) <=
-					//     G(nodes[currentNodeIndex], nodes[goalNodeIndex]) + H(nodes[currentNodeIndex], nodes[goalNodeIndex]) ||
-					//     H(nodes[openSet[i]], nodes[goalNodeIndex]) < H(nodes[currentNodeIndex], nodes[goalNodeIndex])
-					//     )
 					{
 						currentNodeIndex = openSet[i];
 
@@ -233,16 +226,7 @@ namespace GameAICourse
 			}
 
 
-			//if ( nodesExplored  <=  maxNumNodesToExplore )
-			//{
-			//    pathResult =  PathSearchResultType.Complete;
 
-			//}
-			//else
-			//{
-			//    currentNodeIndex =  closestNodeIndex;
-			//    pathResult =  PathSearchResultType.Partial;
-			//}
 			if (openSet.Count <= 0 && currentNodeIndex != goalNodeIndex)
 			{
 				pathResult = PathSearchResultType.Partial;
@@ -280,14 +264,7 @@ namespace GameAICourse
 				returnPath.Reverse();
 			}
 
-			//while ( currentNodeIndex != startNodeIndex)
-			//{   
-			//    returnPath.Add(currentNodeIndex);
-			//    currentNodeIndex =  searchNodeRecords[currentNodeIndex].FromNodeIndex;
-			//}
-			//Debug.Log(pathResult);
 
-			//returnPath.Reverse();
 			return pathResult;
 
 
