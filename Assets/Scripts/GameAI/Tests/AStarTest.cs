@@ -23,80 +23,80 @@ namespace Tests
             Assert.That(AStarPathSearchImpl.StudentAuthorName, Is.Not.Contains("George P. Burdell"),
                 "You forgot to change to your name!");
 
-            Vector2[] _nodes = new Vector2[] {
-        new Vector2(0.0f, 0.0f), //0
+             Vector2[] _nodes = new Vector2[] {
+                new Vector2(0.0f, 0.0f), //0
                 new Vector2(0.0f, 1.0f), //1
                 new Vector2(0.0f, 2.0f), //2
                 new Vector2(0.0f, 3.0f), //3
                 new Vector2(0.0f, 4.0f), //4
                 new Vector2(0.0f, 5.0f), //5
             };
-            int[][] _edges = new int[][] {
-        new int[] {1 },         //0
+            int[][] _edges = new int[][] {
+                new int[] {1 },         //0
                 new int[] {2, 0 },      //1
-                new int[] {3, 1 },      //2
+                new int[] {5, 1 },      //2
                 new int[] {4, 2 },      //3
                 new int[] {5, 3 },      //4
                 new int[] {4 }          //5
             };
 
-            List<Vector2> nodes = new List<Vector2>(_nodes);
-            List<List<int>> edges = new List<List<int>>();
+            List<Vector2> nodes = new List<Vector2>(_nodes);
+            List<List<int>> edges = new List<List<int>>();
 
-            foreach (var eArray in _edges)
-            {
-                var elist = new List<int>(eArray);
-                edges.Add(elist);
-            }
+            foreach(var eArray in _edges)
+            {
+                var elist = new List<int>(eArray);
+                edges.Add(elist);
+            }
 
-            CostCallback G = AStarPathSearchImpl.Cost;
-            CostCallback H = AStarPathSearchImpl.HeuristicEuclidean;
+            CostCallback G = AStarPathSearchImpl.Cost;
+            CostCallback H = AStarPathSearchImpl.HeuristicEuclidean;
 
-            var startNode = 0;
-            var goalNode = nodes.Count - 1;
+            var startNode = 0;
+            var goalNode = 5;
 
-            bool incrementalSearch = true;
+            bool incrementalSearch = true;
 
-            var maxNumNodesToExplore = incrementalSearch ? 1 : int.MaxValue;
+            var maxNumNodesToExplore = incrementalSearch ? 1 : int.MaxValue;
 
-            int currentNodeIndex = 0;
+            int currentNodeIndex = 0;
 
-            Dictionary<int, PathSearchNodeRecord> searchNodeRecord = null;
+            Dictionary<int, PathSearchNodeRecord> searchNodeRecord = null;
 
-            Priority_Queue.SimplePriorityQueue<int, float> openNodes = null;
+            Priority_Queue.SimplePriorityQueue<int, float> openNodes = null;
 
-            HashSet<int> closedNodes = null;
+            HashSet<int> closedNodes = null;
 
-            List<int> returnPath = null;
+            List<int> returnPath = null;
 
-            var ret = PathSearchResultType.InProgress;
+            var ret = PathSearchResultType.InProgress;
 
-            int attempts = 0;
+            int attempts = 0;
 
-            int maxAllowedAttempts = 20;
+            int maxAllowedAttempts = 20;
 
-            do
-            {
-                var init = attempts <= 0;
+            do
+            {
+                var init = attempts <= 0;
 
-                ++attempts;
+                ++attempts;
 
-                ret = AStarPathSearchImpl.FindPathIncremental(nodes, edges, G, H,
-                  startNode, goalNode, maxNumNodesToExplore, init,
-                  ref currentNodeIndex, ref searchNodeRecord, ref openNodes, ref closedNodes,
-                  ref returnPath);
-            }
-            while (ret == PathSearchResultType.InProgress && attempts < maxAllowedAttempts);
+                ret = AStarPathSearchImpl.FindPathIncremental(nodes, edges, G, H,
+                    startNode, goalNode, maxNumNodesToExplore, init,
+                    ref currentNodeIndex, ref searchNodeRecord, ref openNodes, ref closedNodes,
+                    ref returnPath);
+            }
+            while (ret == PathSearchResultType.InProgress && attempts < maxAllowedAttempts);
 
-            Debug.Log($"Number of updates: {attempts}");
+            Debug.Log($"Number of updates: {attempts}");
 
-            Assert.That(ret, Is.EqualTo(PathSearchResultType.Complete));
-            Assert.That(returnPath, Does.Contain(goalNode));
+            Assert.That(ret, Is.EqualTo(PathSearchResultType.Complete));
+            Assert.That(returnPath, Does.Contain(goalNode));
 
-            if (incrementalSearch)
-                Assert.That(attempts, Is.GreaterThan(1));
-            else
-                Assert.That(attempts, Is.EqualTo(1));
+            if (incrementalSearch)
+                Assert.That(attempts, Is.GreaterThan(1));
+            else
+                Assert.That(attempts, Is.EqualTo(1));
 
 
         }
