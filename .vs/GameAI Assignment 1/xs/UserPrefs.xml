@@ -1,20 +1,18 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Framework/PathSearch/AStarPathSearch.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Framework/PathSearch/BasicPathSearchImpl.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="181" Column="1" />
-      <File FileName="Assets/Scripts/Framework/Obstacles.cs" />
-      <File FileName="Assets/Scripts/Framework/Polygon.cs" />
-      <File FileName="Assets/Scripts/Framework/Obstacle.cs" />
-      <File FileName="Assets/Scripts/GameAIPathPlanning.asmdef" />
-      <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
-      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
+      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" Line="53" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="286" Column="19" />
+      <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" Line="279" Column="45" />
+      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" Line="475" Column="16" />
       <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" Line="30" Column="24" />
-      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" />
-      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" />
-      <File FileName="Assets/Scripts/Framework/PathNetwork.cs" />
-      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="207" Column="17" />
       <File FileName="Assets/Scripts/Framework/PathSearch/PathSearchResultType.cs" Line="1" Column="13" />
-      <File FileName="Assets/Scripts/Framework/PathSearch/AStarPathSearch.cs" Line="39" Column="1" />
+      <File FileName="Assets/Scripts/Framework/PathSearch/PathSearchNodeRecord.cs" Line="36" Column="1" />
+      <File FileName="Assets/Scripts/GameAI/Tests/AStarTest.cs" Line="83" Column="1" />
+      <File FileName="Assets/Scripts/Framework/MoveBall.cs" Line="722" Column="37" />
+      <File FileName="Assets/Scripts/Framework/PathSearch/BreadthFirstPathSearch.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Framework/PathSearch/BasicPathSearchImpl.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -26,7 +24,7 @@
                 <Node name="Framework" expanded="True">
                   <Node name="NavMesh" expanded="True" />
                   <Node name="PathSearch" expanded="True">
-                    <Node name="AStarPathSearch.cs" selected="True" />
+                    <Node name="BasicPathSearchImpl.cs" selected="True" />
                   </Node>
                 </Node>
                 <Node name="GameAI" expanded="True">
