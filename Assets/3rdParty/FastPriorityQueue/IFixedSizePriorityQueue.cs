@@ -24,8 +24,8 @@ namespace Priority_Queue
 
         /// <summary>
         /// By default, nodes that have been previously added to one queue cannot be added to another queue.
-        /// If you need to do this, please call originalQueue.ResetNode(node) before attempting to add it in the new queue
+        /// If you need to do this, please call originalQueue.ResetNode(pathNode) before attempting to add it in the new queue
         /// </summary>
-        void ResetNode(TItem node);
+        void ResetNode(TItem pathNode);
     }
 }

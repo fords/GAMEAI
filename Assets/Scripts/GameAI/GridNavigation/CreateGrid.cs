@@ -151,11 +151,11 @@ namespace GameAICourse {
 
 
 		// CreatePathNetworkFromGrid(): Creates a path network from a grid according to traversability
-		// from one node to an adjacent node. Each node should be centered in the cell.
+		// from one pathNode to an adjacent pathNode. Each pathNode should be centered in the cell.
 		// Edges from A to B should always have a matching B to A edge
 		// pathNodes: a list of graph nodes, centered on each cell
-		// pathEdges: graph adjacency list for each graph node. cooresponding index of pathNodes to match
-		//      node with its edge list. All nodes must have an edge list (no null list)
+		// pathEdges: graph adjacency list for each graph pathNode. cooresponding index of pathNodes to match
+		//      pathNode with its edge list. All nodes must have an edge list (no null list)
 		//      entries in each edge list are indices into pathNodes
 		public static void CreatePathGraphFromGrid(
             Vector2 canvasOrigin, float canvasWidth, float canvasHeight, float cellWidth,
@@ -173,8 +173,10 @@ namespace GameAICourse {
 
 
             pathEdges = new List<List<int>>();
-            int col = (int) System.Math.Floor(canvasWidth / cellWidth);
-            int row = (int) System.Math.Floor(canvasHeight / cellWidth);
+            int col = grid.GetLength(0);
+            int row = grid.GetLength(1);
+            //int col = (int) System.Math.Floor(canvasWidth / cellWidth);
+            //int row = (int) System.Math.Floor(canvasHeight / cellWidth);
             pathNodes = new List<Vector2>();
 
 
@@ -235,13 +237,13 @@ namespace GameAICourse {
 			//Debug.Log(conn);
 
 
-			//example of node placed in center of cell
+			//example of pathNode placed in center of cell
 
 
 			//initalization of a path edge that corresponds to same index pathNode
 
 
-			//only one node, so can't be connected to anything, but we still initialize
+			//only one pathNode, so can't be connected to anything, but we still initialize
 			//to an empty list. Null not allowed!
 			//pathEdges.Add(new List<int>());
 
@@ -333,13 +335,20 @@ namespace GameAICourse {
                         }
 						//  obstacle lines intersect cells is covered by isinsidePolygon method
 						//  obstacle polygon  is smaller than cell
+                        //  case 1:narrow horizontal polygon
 						if (obs.MinBounds.x < startingCol  && obs.MaxBounds.x > startingCol + cellWidth && obs.MinBounds.y > startingRow && obs.MaxBounds.y < startingRow + cellWidth)//obs.MinBounds.y
 						{
 							grid[j, i] = false;
 						}
-				
 
-					}
+                        // case 2: narrow tall polygon
+                        if (obs.MinBounds.y < startingRow && obs.MaxBounds.y > startingRow + cellWidth && obs.MinBounds.x > startingCol  && obs.MaxBounds.x < startingCol + cellWidth)//obs.MinBounds.y
+                        {
+                            grid[j, i] = false;
+                        }
+
+
+                    }
 				}
 			}
  

@@ -48,7 +48,7 @@ public class PathNetwork : DiscretizedSpaceMonoBehavior
     //    Utils.DisplayName("CreatePathNetwork", CreatePathNetwork.StudentAuthorName);
     //}
 
-    //Get all child node cubes and create their corresponding path node vectors
+    //Get all child pathNode cubes and create their corresponding path pathNode vectors
     void Init()
     {
 

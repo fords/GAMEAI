@@ -10,21 +10,21 @@ public class PathSearchNodeRecord : IComparable<PathSearchNodeRecord>
     public float EstimatedTotalCost { get; set; }
 
 
-    public PathSearchNodeRecord(int nodeIndex, int fromNodeIndex, float costSoFar, float estimatedTotalCost )
+    public PathSearchNodeRecord(int i, int fromNodeIndex, float costSoFar, float estimatedTotalCost )
     {
-        NodeIndex = nodeIndex;
+        NodeIndex = i;
         FromNodeIndex = fromNodeIndex;
         CostSoFar = costSoFar;
         EstimatedTotalCost = estimatedTotalCost;
     }
 
-    public PathSearchNodeRecord(int nodeIndex, int fromNodeIndex):
-        this(nodeIndex, fromNodeIndex, 0f, 0f)
+    public PathSearchNodeRecord(int i, int fromNodeIndex):
+        this(i, fromNodeIndex, 0f, 0f)
     {    
     }
 
-    public PathSearchNodeRecord(int nodeIndex) :
-    this(nodeIndex, -1)
+    public PathSearchNodeRecord(int i) :
+    this(i, -1)
     {
     }
 

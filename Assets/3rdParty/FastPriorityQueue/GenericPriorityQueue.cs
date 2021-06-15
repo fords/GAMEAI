@@ -77,7 +77,7 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Removes every node from the queue.
+        /// Removes every pathNode from the queue.
         /// O(n) (So, don't do this often!)
         /// </summary>
 #if NET_VERSION_4_5
@@ -90,92 +90,92 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Returns (in O(1)!) whether the given node is in the queue.
-        /// If node is or has been previously added to another queue, the result is undefined unless oldQueue.ResetNode(node) has been called
+        /// Returns (in O(1)!) whether the given pathNode is in the queue.
+        /// If pathNode is or has been previously added to another queue, the result is undefined unless oldQueue.ResetNode(pathNode) has been called
         /// O(1)
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        public bool Contains(TItem node)
+        public bool Contains(TItem pathNode)
         {
 #if DEBUG
-            if(node == null)
+            if(pathNode == null)
             {
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException("pathNode");
             }
-            if (node.Queue != null && !Equals(node.Queue))
+            if (pathNode.Queue != null && !Equals(pathNode.Queue))
             {
-                throw new InvalidOperationException("node.Contains was called on a node from another queue.  Please call originalQueue.ResetNode() first");
+                throw new InvalidOperationException("pathNode.Contains was called on a pathNode from another queue.  Please call originalQueue.ResetNode() first");
             }
-            if (node.QueueIndex < 0 || node.QueueIndex >= _nodes.Length)
+            if (pathNode.QueueIndex < 0 || pathNode.QueueIndex >= _nodes.Length)
             {
-                throw new InvalidOperationException("node.QueueIndex has been corrupted. Did you change it manually?");
+                throw new InvalidOperationException("pathNode.QueueIndex has been corrupted. Did you change it manually?");
             }
 #endif
 
-            return (_nodes[node.QueueIndex] == node);
+            return (_nodes[pathNode.QueueIndex] == pathNode);
         }
 
         /// <summary>
-        /// Enqueue a node to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
+        /// Enqueue a pathNode to the priority queue.  Lower values are placed in front. Ties are broken by first-in-first-out.
         /// If the queue is full, the result is undefined.
-        /// If the node is already enqueued, the result is undefined.
-        /// If node is or has been previously added to another queue, the result is undefined unless oldQueue.ResetNode(node) has been called
+        /// If the pathNode is already enqueued, the result is undefined.
+        /// If pathNode is or has been previously added to another queue, the result is undefined unless oldQueue.ResetNode(pathNode) has been called
         /// O(log n)
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        public void Enqueue(TItem node, TPriority priority)
+        public void Enqueue(TItem pathNode, TPriority priority)
         {
 #if DEBUG
-            if(node == null)
+            if(pathNode == null)
             {
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException("pathNode");
             }
             if(_numNodes >= _nodes.Length - 1)
             {
-                throw new InvalidOperationException("Queue is full - node cannot be added: " + node);
+                throw new InvalidOperationException("Queue is full - pathNode cannot be added: " + pathNode);
             }
-            if (node.Queue != null && !Equals(node.Queue))
+            if (pathNode.Queue != null && !Equals(pathNode.Queue))
             {
-                throw new InvalidOperationException("node.Enqueue was called on a node from another queue.  Please call originalQueue.ResetNode() first");
+                throw new InvalidOperationException("pathNode.Enqueue was called on a pathNode from another queue.  Please call originalQueue.ResetNode() first");
             }
-            if (Contains(node))
+            if (Contains(pathNode))
             {
-                throw new InvalidOperationException("Node is already enqueued: " + node);
+                throw new InvalidOperationException("Node is already enqueued: " + pathNode);
             }
-            node.Queue = this;
+            pathNode.Queue = this;
 #endif
 
-            node.Priority = priority;
+            pathNode.Priority = priority;
             _numNodes++;
-            _nodes[_numNodes] = node;
-            node.QueueIndex = _numNodes;
-            node.InsertionIndex = _numNodesEverEnqueued++;
-            CascadeUp(node);
+            _nodes[_numNodes] = pathNode;
+            pathNode.QueueIndex = _numNodes;
+            pathNode.InsertionIndex = _numNodesEverEnqueued++;
+            CascadeUp(pathNode);
         }
 
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        private void CascadeUp(TItem node)
+        private void CascadeUp(TItem pathNode)
         {
             //aka Heapify-up
             int parent;
-            if (node.QueueIndex > 1)
+            if (pathNode.QueueIndex > 1)
             {
-                parent = node.QueueIndex >> 1;
+                parent = pathNode.QueueIndex >> 1;
                 TItem parentNode = _nodes[parent];
-                if(HasHigherPriority(parentNode, node))
+                if(HasHigherPriority(parentNode, pathNode))
                     return;
 
                 //Node has lower priority value, so move parent down the heap to make room
-                _nodes[node.QueueIndex] = parentNode;
-                parentNode.QueueIndex = node.QueueIndex;
+                _nodes[pathNode.QueueIndex] = parentNode;
+                parentNode.QueueIndex = pathNode.QueueIndex;
 
-                node.QueueIndex = parent;
+                pathNode.QueueIndex = parent;
             }
             else
             {
@@ -185,45 +185,45 @@ namespace Priority_Queue
             {
                 parent >>= 1;
                 TItem parentNode = _nodes[parent];
-                if(HasHigherPriority(parentNode, node))
+                if(HasHigherPriority(parentNode, pathNode))
                     break;
 
                 //Node has lower priority value, so move parent down the heap to make room
-                _nodes[node.QueueIndex] = parentNode;
-                parentNode.QueueIndex = node.QueueIndex;
+                _nodes[pathNode.QueueIndex] = parentNode;
+                parentNode.QueueIndex = pathNode.QueueIndex;
 
-                node.QueueIndex = parent;
+                pathNode.QueueIndex = parent;
             }
-            _nodes[node.QueueIndex] = node;
+            _nodes[pathNode.QueueIndex] = pathNode;
         }
 
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        private void CascadeDown(TItem node)
+        private void CascadeDown(TItem pathNode)
         {
             //aka Heapify-down
-            int finalQueueIndex = node.QueueIndex;
+            int finalQueueIndex = pathNode.QueueIndex;
             int childLeftIndex = 2 * finalQueueIndex;
 
-            // If leaf node, we're done
+            // If leaf pathNode, we're done
             if(childLeftIndex > _numNodes)
             {
                 return;
             }
 
-            // Check if the left-child is higher-priority than the current node
+            // Check if the left-child is higher-priority than the current pathNode
             int childRightIndex = childLeftIndex + 1;
             TItem childLeft = _nodes[childLeftIndex];
-            if(HasHigherPriority(childLeft, node))
+            if(HasHigherPriority(childLeft, pathNode))
             {
                 // Check if there is a right child. If not, swap and finish.
                 if(childRightIndex > _numNodes)
                 {
-                    node.QueueIndex = childLeftIndex;
+                    pathNode.QueueIndex = childLeftIndex;
                     childLeft.QueueIndex = finalQueueIndex;
                     _nodes[finalQueueIndex] = childLeft;
-                    _nodes[childLeftIndex] = node;
+                    _nodes[childLeftIndex] = pathNode;
                     return;
                 }
                 // Check if the left-child is higher-priority than the right-child
@@ -250,9 +250,9 @@ namespace Priority_Queue
             }
             else
             {
-                // Check if the right-child is higher-priority than the current node
+                // Check if the right-child is higher-priority than the current pathNode
                 TItem childRight = _nodes[childRightIndex];
-                if(HasHigherPriority(childRight, node))
+                if(HasHigherPriority(childRight, pathNode))
                 {
                     childRight.QueueIndex = finalQueueIndex;
                     _nodes[finalQueueIndex] = childRight;
@@ -269,26 +269,26 @@ namespace Priority_Queue
             {
                 childLeftIndex = 2 * finalQueueIndex;
 
-                // If leaf node, we're done
+                // If leaf pathNode, we're done
                 if(childLeftIndex > _numNodes)
                 {
-                    node.QueueIndex = finalQueueIndex;
-                    _nodes[finalQueueIndex] = node;
+                    pathNode.QueueIndex = finalQueueIndex;
+                    _nodes[finalQueueIndex] = pathNode;
                     break;
                 }
 
-                // Check if the left-child is higher-priority than the current node
+                // Check if the left-child is higher-priority than the current pathNode
                 childRightIndex = childLeftIndex + 1;
                 childLeft = _nodes[childLeftIndex];
-                if(HasHigherPriority(childLeft, node))
+                if(HasHigherPriority(childLeft, pathNode))
                 {
                     // Check if there is a right child. If not, swap and finish.
                     if(childRightIndex > _numNodes)
                     {
-                        node.QueueIndex = childLeftIndex;
+                        pathNode.QueueIndex = childLeftIndex;
                         childLeft.QueueIndex = finalQueueIndex;
                         _nodes[finalQueueIndex] = childLeft;
-                        _nodes[childLeftIndex] = node;
+                        _nodes[childLeftIndex] = pathNode;
                         break;
                     }
                     // Check if the left-child is higher-priority than the right-child
@@ -311,15 +311,15 @@ namespace Priority_Queue
                 // Not swapping with left-child, does right-child exist?
                 else if(childRightIndex > _numNodes)
                 {
-                    node.QueueIndex = finalQueueIndex;
-                    _nodes[finalQueueIndex] = node;
+                    pathNode.QueueIndex = finalQueueIndex;
+                    _nodes[finalQueueIndex] = pathNode;
                     break;
                 }
                 else
                 {
-                    // Check if the right-child is higher-priority than the current node
+                    // Check if the right-child is higher-priority than the current pathNode
                     TItem childRight = _nodes[childRightIndex];
-                    if(HasHigherPriority(childRight, node))
+                    if(HasHigherPriority(childRight, pathNode))
                     {
                         childRight.QueueIndex = finalQueueIndex;
                         _nodes[finalQueueIndex] = childRight;
@@ -328,8 +328,8 @@ namespace Priority_Queue
                     // Neither child is higher-priority than current, so finish and stop.
                     else
                     {
-                        node.QueueIndex = finalQueueIndex;
-                        _nodes[finalQueueIndex] = node;
+                        pathNode.QueueIndex = finalQueueIndex;
+                        _nodes[finalQueueIndex] = pathNode;
                         break;
                     }
                 }
@@ -338,7 +338,7 @@ namespace Priority_Queue
 
         /// <summary>
         /// Returns true if 'higher' has higher priority than 'lower', false otherwise.
-        /// Note that calling HasHigherPriority(node, node) (ie. both arguments the same node) will return false
+        /// Note that calling HasHigherPriority(pathNode, pathNode) (ie. both arguments the same pathNode) will return false
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -350,7 +350,7 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// Removes the head of the queue (node with minimum priority; ties are broken by order of insertion), and returns it.
+        /// Removes the head of the queue (pathNode with minimum priority; ties are broken by order of insertion), and returns it.
         /// If queue is empty, result is undefined
         /// O(log n)
         /// </summary>
@@ -367,13 +367,13 @@ namespace Priority_Queue
 
             if(!IsValidQueue())
             {
-                throw new InvalidOperationException("Queue has been corrupted (Did you update a node priority manually instead of calling UpdatePriority()?" +
-                                                    "Or add the same node to two different queues?)");
+                throw new InvalidOperationException("Queue has been corrupted (Did you update a pathNode priority manually instead of calling UpdatePriority()?" +
+                                                    "Or add the same pathNode to two different queues?)");
             }
 #endif
 
             TItem returnMe = _nodes[1];
-            //If the node is already the last node, we can remove it immediately
+            //If the pathNode is already the last pathNode, we can remove it immediately
             if(_numNodes == 1)
             {
                 _nodes[1] = null;
@@ -381,14 +381,14 @@ namespace Priority_Queue
                 return returnMe;
             }
 
-            //Swap the node with the last node
+            //Swap the pathNode with the last pathNode
             TItem formerLastNode = _nodes[_numNodes];
             _nodes[1] = formerLastNode;
             formerLastNode.QueueIndex = 1;
             _nodes[_numNodes] = null;
             _numNodes--;
 
-            //Now bubble formerLastNode (which is no longer the last node) down
+            //Now bubble formerLastNode (which is no longer the last pathNode) down
             CascadeDown(formerLastNode);
             return returnMe;
         }
@@ -439,125 +439,125 @@ namespace Priority_Queue
         }
 
         /// <summary>
-        /// This method must be called on a node every time its priority changes while it is in the queue.  
+        /// This method must be called on a pathNode every time its priority changes while it is in the queue.  
         /// <b>Forgetting to call this method will result in a corrupted queue!</b>
-        /// Calling this method on a node not in the queue results in undefined behavior
+        /// Calling this method on a pathNode not in the queue results in undefined behavior
         /// O(log n)
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        public void UpdatePriority(TItem node, TPriority priority)
+        public void UpdatePriority(TItem pathNode, TPriority priority)
         {
 #if DEBUG
-            if(node == null)
+            if(pathNode == null)
             {
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException("pathNode");
             }
-            if (node.Queue != null && !Equals(node.Queue))
+            if (pathNode.Queue != null && !Equals(pathNode.Queue))
             {
-                throw new InvalidOperationException("node.UpdatePriority was called on a node from another queue");
+                throw new InvalidOperationException("pathNode.UpdatePriority was called on a pathNode from another queue");
             }
-            if (!Contains(node))
+            if (!Contains(pathNode))
             {
-                throw new InvalidOperationException("Cannot call UpdatePriority() on a node which is not enqueued: " + node);
+                throw new InvalidOperationException("Cannot call UpdatePriority() on a pathNode which is not enqueued: " + pathNode);
             }
 #endif
 
-            node.Priority = priority;
-            OnNodeUpdated(node);
+            pathNode.Priority = priority;
+            OnNodeUpdated(pathNode);
         }
 
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        private void OnNodeUpdated(TItem node)
+        private void OnNodeUpdated(TItem pathNode)
         {
-            //Bubble the updated node up or down as appropriate
-            int parentIndex = node.QueueIndex >> 1;
+            //Bubble the updated pathNode up or down as appropriate
+            int parentIndex = pathNode.QueueIndex >> 1;
 
-            if(parentIndex > 0 && HasHigherPriority(node, _nodes[parentIndex]))
+            if(parentIndex > 0 && HasHigherPriority(pathNode, _nodes[parentIndex]))
             {
-                CascadeUp(node);
+                CascadeUp(pathNode);
             }
             else
             {
-                //Note that CascadeDown will be called if parentNode == node (that is, node is the root)
-                CascadeDown(node);
+                //Note that CascadeDown will be called if parentNode == pathNode (that is, pathNode is the root)
+                CascadeDown(pathNode);
             }
         }
 
         /// <summary>
-        /// Removes a node from the queue.  The node does not need to be the head of the queue.  
-        /// If the node is not in the queue, the result is undefined.  If unsure, check Contains() first
+        /// Removes a pathNode from the queue.  The pathNode does not need to be the head of the queue.  
+        /// If the pathNode is not in the queue, the result is undefined.  If unsure, check Contains() first
         /// O(log n)
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        public void Remove(TItem node)
+        public void Remove(TItem pathNode)
         {
 #if DEBUG
-            if(node == null)
+            if(pathNode == null)
             {
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException("pathNode");
             }
-            if (node.Queue != null && !Equals(node.Queue))
+            if (pathNode.Queue != null && !Equals(pathNode.Queue))
             {
-                throw new InvalidOperationException("node.Remove was called on a node from another queue");
+                throw new InvalidOperationException("pathNode.Remove was called on a pathNode from another queue");
             }
-            if (!Contains(node))
+            if (!Contains(pathNode))
             {
-                throw new InvalidOperationException("Cannot call Remove() on a node which is not enqueued: " + node);
+                throw new InvalidOperationException("Cannot call Remove() on a pathNode which is not enqueued: " + pathNode);
             }
 #endif
 
-            //If the node is already the last node, we can remove it immediately
-            if(node.QueueIndex == _numNodes)
+            //If the pathNode is already the last pathNode, we can remove it immediately
+            if(pathNode.QueueIndex == _numNodes)
             {
                 _nodes[_numNodes] = null;
                 _numNodes--;
                 return;
             }
 
-            //Swap the node with the last node
+            //Swap the pathNode with the last pathNode
             TItem formerLastNode = _nodes[_numNodes];
-            _nodes[node.QueueIndex] = formerLastNode;
-            formerLastNode.QueueIndex = node.QueueIndex;
+            _nodes[pathNode.QueueIndex] = formerLastNode;
+            formerLastNode.QueueIndex = pathNode.QueueIndex;
             _nodes[_numNodes] = null;
             _numNodes--;
 
-            //Now bubble formerLastNode (which is no longer the last node) up or down as appropriate
+            //Now bubble formerLastNode (which is no longer the last pathNode) up or down as appropriate
             OnNodeUpdated(formerLastNode);
         }
 
         /// <summary>
         /// By default, nodes that have been previously added to one queue cannot be added to another queue.
-        /// If you need to do this, please call originalQueue.ResetNode(node) before attempting to add it in the new queue
+        /// If you need to do this, please call originalQueue.ResetNode(pathNode) before attempting to add it in the new queue
         /// </summary>
 #if NET_VERSION_4_5
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
 #endif
-        public void ResetNode(TItem node)
+        public void ResetNode(TItem pathNode)
         {
 #if DEBUG
-            if (node == null)
+            if (pathNode == null)
             {
-                throw new ArgumentNullException("node");
+                throw new ArgumentNullException("pathNode");
             }
-            if (node.Queue != null && !Equals(node.Queue))
+            if (pathNode.Queue != null && !Equals(pathNode.Queue))
             {
-                throw new InvalidOperationException("node.ResetNode was called on a node from another queue");
+                throw new InvalidOperationException("pathNode.ResetNode was called on a pathNode from another queue");
             }
-            if (Contains(node))
+            if (Contains(pathNode))
             {
-                throw new InvalidOperationException("node.ResetNode was called on a node that is still in the queue");
+                throw new InvalidOperationException("pathNode.ResetNode was called on a pathNode that is still in the queue");
             }
 
-            node.Queue = null;
+            pathNode.Queue = null;
 #endif
 
-            node.QueueIndex = 0;
+            pathNode.QueueIndex = 0;
         }
 
 
