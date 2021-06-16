@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿   using System.Collections;
 using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
@@ -73,7 +73,7 @@ namespace Tests
 
             int attempts = 0;
 
-            int maxAllowedAttempts = 20;
+            int maxAllowedAttempts = 10;
 
             do
             {
