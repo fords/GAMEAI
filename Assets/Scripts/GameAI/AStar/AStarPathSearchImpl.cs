@@ -140,43 +140,69 @@ namespace GameAICourse
 
 			searchNodeRecords = new Dictionary<int, PathSearchNodeRecord>();
 			openNodes = new SimplePriorityQueue<int, float>();
-			List<int> openSet = new List<int>();
+			//List<int> openSet = new List<int>();
 			closedNodes = new HashSet<int>();
 
 			returnPath = new List<int>();
 			int nodesExplored = 0;
 			//int closestNodeIndex = startNodeIndex;
 			//currentNodeIndex  = startNodeIndex;
-
-			openSet.Add(startNodeIndex);
+			//openNodes.Enqueue(startNodeIndex, 0.0f);
+			//openSet.Add(startNodeIndex);
 			//openSet.Add(openNodes.Dequeue()); // from openNode start point
 			//openNodes[startNodeIndex] = 0;
 			searchNodeRecords[currentNodeIndex] = new PathSearchNodeRecord(currentNodeIndex, -1, 0, H(nodes[currentNodeIndex], nodes[goalNodeIndex]));
 			//while (nodesProcessed < maxNumNodesToExplore &&
-			while (nodesExplored < maxNumNodesToExplore && openSet.Count > 0)
+			while (nodesExplored < maxNumNodesToExplore && openNodes.Count > 0)
 			{
-				currentNodeIndex = openSet[0];
-				//var currentNodeRecord = searchNodeRecords[openSet[0]];
+				//currentNodeIndex = openSet[0];
+				//currentNodeIndex = openNodes.Peek();
+				//var openNodes = searchNodeRecords[openSet[0]];
 				//currentNodeIndex = currentNodeRecord.NodeIndex;
 				nodesExplored += 1;
 
-				for (int i = 1; i < openSet.Count; i++)
+				foreach (int val in openNodes)
 				{
-					// find smallest element in openset
-					if (searchNodeRecords[openSet[i]].EstimatedTotalCost + searchNodeRecords[openSet[i]].CostSoFar <
-						searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar ||
-
-						(searchNodeRecords[openSet[i]].EstimatedTotalCost + searchNodeRecords[openSet[i]].CostSoFar ==
-						searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar &&
-						searchNodeRecords[openSet[i]].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost))
-
-					{
-						currentNodeIndex = openSet[i];
-
-					}
+					currentNodeIndex = val;
 				}
 
-				openSet.Remove(currentNodeIndex);
+					foreach ( int val in openNodes)
+				{
+					if (searchNodeRecords[val].EstimatedTotalCost + searchNodeRecords[val].CostSoFar <
+						searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar ||
+
+					(searchNodeRecords[val].EstimatedTotalCost + searchNodeRecords[val].CostSoFar ==
+						searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar &&
+						searchNodeRecords[val].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost))
+					{
+						currentNodeIndex = val;
+					}
+
+				}
+				Debug.Log(currentNodeIndex);
+
+				//for (int i = 1; i < openNodes.Count; i++)
+				//{
+				//	// find smallest element in openset
+				//	if (searchNodeRecords[openNodes[i]].EstimatedTotalCost + searchNodeRecords[openNodes[i]].CostSoFar <
+				//		searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar ||
+
+				//		(searchNodeRecords[openSet[i]].EstimatedTotalCost + searchNodeRecords[openSet[i]].CostSoFar ==
+				//		searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar &&
+				//		searchNodeRecords[openSet[i]].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost))
+
+				//	{
+				//		currentNodeIndex = openSet[i];
+
+				//	}
+				//}
+
+				//openSet.Remove(currentNodeIndex);
+				if (openNodes.Contains(currentNodeIndex))
+				{
+					openNodes.Remove(currentNodeIndex);
+				}
+				
 				closedNodes.Add(currentNodeIndex);
 
 				if (currentNodeIndex == goalNodeIndex)
@@ -204,20 +230,20 @@ namespace GameAICourse
 						searchNodeRecords[neighbor].EstimatedTotalCost = G(nodes[neighbor], nodes[goalNodeIndex]);
 						searchNodeRecords[neighbor].FromNodeIndex = currentNodeIndex;
 
-						if (!openSet.Contains(neighbor))
+						if (!openNodes.Contains(neighbor))
 						{
-							openSet.Add(neighbor);
+							openNodes.Enqueue(neighbor, searchNodeRecords[neighbor].EstimatedTotalCost);
 						}
 					}
-					else if (costToTravelNeighbor < searchNodeRecords[neighbor].CostSoFar || !openSet.Contains(neighbor))
+					else if (costToTravelNeighbor < searchNodeRecords[neighbor].CostSoFar || !openNodes.Contains(neighbor))
 					{
 						searchNodeRecords[neighbor].CostSoFar = costToTravelNeighbor;
 						searchNodeRecords[neighbor].EstimatedTotalCost = G(nodes[neighbor], nodes[goalNodeIndex]);
 						searchNodeRecords[neighbor].FromNodeIndex = currentNodeIndex;
 
-						if (!openSet.Contains(neighbor))
+						if (!openNodes.Contains(neighbor))
 						{
-							openSet.Add(neighbor);
+							openNodes.Enqueue(neighbor , searchNodeRecords[neighbor].EstimatedTotalCost);
 						}
 					}
 				}
@@ -227,7 +253,7 @@ namespace GameAICourse
 
 
 
-			if (openSet.Count <= 0 && currentNodeIndex != goalNodeIndex)
+			if (openNodes.Count <= 0 && currentNodeIndex != goalNodeIndex)
 			{
 				pathResult = PathSearchResultType.Partial;
 
