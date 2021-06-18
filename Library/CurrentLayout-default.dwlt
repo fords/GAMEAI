@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -1559
-    y: 106
-    width: 994
-    height: 679
+    x: -194
+    y: 23
+    width: 1634
+    height: 805
   m_ShowMode: 0
   m_Title: 
   m_RootView: {fileID: 4}
@@ -38,8 +38,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PixelRect:
     serializedVersion: 2
-    x: -1871
-    y: 155
+    x: 0
+    y: 45
     width: 1440
     height: 855
   m_ShowMode: 4
@@ -65,8 +65,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 994
-    height: 679
+    width: 1634
+    height: 805
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   m_ActualView: {fileID: 15}
@@ -92,12 +92,12 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 994
-    height: 679
+    width: 1634
+    height: 805
   m_MinSize: {x: 100, y: 121}
   m_MaxSize: {x: 4000, y: 4021}
   vertical: 0
-  controlID: 2466
+  controlID: 14
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 342}
   m_MaxSize: {x: 12004, y: 8042}
   vertical: 0
-  controlID: 102
+  controlID: 123
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 342}
   m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 103
+  controlID: 124
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 104
+  controlID: 125
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -367,22 +367,22 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1559
-    y: 106
-    width: 994
-    height: 658
+    x: -194
+    y: 23
+    width: 1634
+    height: 784
   m_ViewDataDictionary: {fileID: 0}
   m_Spl:
-    ID: 2497
-    splitterInitialOffset: 0
+    ID: 165
+    splitterInitialOffset: 413
     currentActiveSplitter: -1
-    realSizes: b901000093000000
+    realSizes: 5901000071010000
     relativeSizes:
-    - 0.75
-    - 0.25
+    - 0.48319328
+    - 0.5168067
     minSizes: 2000000020000000
     maxSizes: 0000000000000000
-    lastTotalSize: 588
+    lastTotalSize: 714
     splitSize: 6
     xOffset: 0
   m_TestTypeToolbarIndex: 1
@@ -429,7 +429,7 @@ MonoBehaviour:
       name: GameAIAssignments
       fullName: GameAIAssignments
       resultStatus: 2
-      duration: 0.6266555
+      duration: 139.96686
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -445,7 +445,7 @@ MonoBehaviour:
       name: Tests.dll
       fullName: /Users/zey/GameAI Assignment 1/Library/ScriptAssemblies/Tests.dll
       resultStatus: 2
-      duration: 0.4003474
+      duration: 139.78355
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -461,7 +461,7 @@ MonoBehaviour:
       name: Tests
       fullName: Tests
       resultStatus: 2
-      duration: 0.3242902
+      duration: 139.77771
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -477,7 +477,7 @@ MonoBehaviour:
       name: AStarTest
       fullName: Tests.AStarTest
       resultStatus: 2
-      duration: 0.2205789
+      duration: 139.76762
       messages: One or more child tests had errors
       output: 
       stacktrace: 
@@ -493,22 +493,24 @@ MonoBehaviour:
       name: TestName
       fullName: Tests.AStarTest.TestName
       resultStatus: 2
-      duration: 0.0986579
-      messages: 'System.Collections.Generic.KeyNotFoundException : The given key
-        was not present in the dictionary.'
-      output: " openset count:  1 \n openset :  1 \n openset count:  2 \n openset
-        :  2 \n openset :  0 \n"
-      stacktrace: "  at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item
-        (TKey key) [0x0001e] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental
-        (System.Collections.Generic.List`1[T] nodes, System.Collections.Generic.List`1[T]
-        edges, CostCallback G, CostCallback H, System.Int32 startNodeIndex, System.Int32
-        goalNodeIndex, System.Int32 maxNumNodesToExplore, System.Boolean doInitialization,
-        System.Int32& currentNodeIndex, System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
+      duration: 139.6359
+      messages: 'System.OutOfMemoryException : Out of memory'
+      output: 
+      stacktrace: "  at (wrapper managed-to-native) System.Object.__icall_wrapper_ves_icall_array_new_specific(intptr,int)\n 
+        at System.Collections.Generic.List`1[T].set_Capacity (System.Int32 value)
+        [0x00021] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at System.Collections.Generic.List`1[T].EnsureCapacity
+        (System.Int32 min) [0x00036] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n 
+        at System.Collections.Generic.List`1[T].Add (T item) [0x00010] in <eae584ce26bc40229c1b1aa476bfa589>:0
+        \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental (System.Collections.Generic.List`1[T]
+        nodes, System.Collections.Generic.List`1[T] edges, CostCallback G, CostCallback
+        H, System.Int32 startNodeIndex, System.Int32 goalNodeIndex, System.Int32
+        maxNumNodesToExplore, System.Boolean doInitialization, System.Int32& currentNodeIndex,
+        System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
         searchNodeRecords, Priority_Queue.SimplePriorityQueue`2[System.Int32,System.Single]&
         openNodes, System.Collections.Generic.HashSet`1[System.Int32]& closedNodes,
-        System.Collections.Generic.List`1[System.Int32]& returnPath) [0x001bc] in
-        /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:173
-        \n  at Tests.AStarTest.TestName () [0x001ad] in /Users/zey/GameAI Assignment
+        System.Collections.Generic.List`1[System.Int32]& returnPath) [0x0058f] in
+        /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:282
+        \n  at Tests.AStarTest.TestName () [0x001b4] in /Users/zey/GameAI Assignment
         1/Assets/Scripts/GameAI/Tests/AStarTest.cs:84 \n  at (wrapper managed-to-native)
         System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\n 
         at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
@@ -839,34 +841,39 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1020
       parentUniqueId: Tests.dll/Tests/[Tests][Tests.PathNetworkTest][suite]
-    m_ResultText: "TestName (0.099s)\n---\nSystem.Collections.Generic.KeyNotFoundException
-      : The given key was not present in the dictionary.\n---\nat System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item
-      (TKey key) [0x0001e] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental
-      (System.Collections.Generic.List`1[T] nodes, System.Collections.Generic.List`1[T]
-      edges, CostCallback G, CostCallback H, System.Int32 startNodeIndex, System.Int32
-      goalNodeIndex, System.Int32 maxNumNodesToExplore, System.Boolean doInitialization,
-      System.Int32& currentNodeIndex, System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
+    m_ResultText: "TestName (139.636s)\n---\nSystem.OutOfMemoryException : Out of
+      memory\n---\nat (wrapper managed-to-native) System.Object.__icall_wrapper_ves_icall_array_new_specific(intptr,int)\n 
+      at System.Collections.Generic.List`1[T].set_Capacity (System.Int32 value) [0x00021]
+      in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at System.Collections.Generic.List`1[T].EnsureCapacity
+      (System.Int32 min) [0x00036] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at
+      System.Collections.Generic.List`1[T].Add (T item) [0x00010] in <eae584ce26bc40229c1b1aa476bfa589>:0
+      \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental (System.Collections.Generic.List`1[T]
+      nodes, System.Collections.Generic.List`1[T] edges, CostCallback G, CostCallback
+      H, System.Int32 startNodeIndex, System.Int32 goalNodeIndex, System.Int32 maxNumNodesToExplore,
+      System.Boolean doInitialization, System.Int32& currentNodeIndex, System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
       searchNodeRecords, Priority_Queue.SimplePriorityQueue`2[System.Int32,System.Single]&
       openNodes, System.Collections.Generic.HashSet`1[System.Int32]& closedNodes,
-      System.Collections.Generic.List`1[System.Int32]& returnPath) [0x001bc] in /Users/zey/GameAI
-      Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:173 \n  at
-      Tests.AStarTest.TestName () [0x001ad] in /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/Tests/AStarTest.cs:84
+      System.Collections.Generic.List`1[System.Int32]& returnPath) [0x0058f] in /Users/zey/GameAI
+      Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:282 \n  at
+      Tests.AStarTest.TestName () [0x001b4] in /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/Tests/AStarTest.cs:84
       \n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\n 
       at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
       invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
-      culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0\n---\nopenset count: 
-      1 \n openset :  1 \n openset count:  2 \n openset :  2 \n openset :  0"
-    m_ResultStacktrace: "  at System.Collections.Generic.Dictionary`2[TKey,TValue].get_Item
-      (TKey key) [0x0001e] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental
-      (System.Collections.Generic.List`1[T] nodes, System.Collections.Generic.List`1[T]
-      edges, CostCallback G, CostCallback H, System.Int32 startNodeIndex, System.Int32
-      goalNodeIndex, System.Int32 maxNumNodesToExplore, System.Boolean doInitialization,
-      System.Int32& currentNodeIndex, System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
+      culture) [0x00032] in <eae584ce26bc40229c1b1aa476bfa589>:0"
+    m_ResultStacktrace: "  at (wrapper managed-to-native) System.Object.__icall_wrapper_ves_icall_array_new_specific(intptr,int)\n 
+      at System.Collections.Generic.List`1[T].set_Capacity (System.Int32 value) [0x00021]
+      in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at System.Collections.Generic.List`1[T].EnsureCapacity
+      (System.Int32 min) [0x00036] in <eae584ce26bc40229c1b1aa476bfa589>:0 \n  at
+      System.Collections.Generic.List`1[T].Add (T item) [0x00010] in <eae584ce26bc40229c1b1aa476bfa589>:0
+      \n  at GameAICourse.AStarPathSearchImpl.FindPathIncremental (System.Collections.Generic.List`1[T]
+      nodes, System.Collections.Generic.List`1[T] edges, CostCallback G, CostCallback
+      H, System.Int32 startNodeIndex, System.Int32 goalNodeIndex, System.Int32 maxNumNodesToExplore,
+      System.Boolean doInitialization, System.Int32& currentNodeIndex, System.Collections.Generic.Dictionary`2[System.Int32,PathSearchNodeRecord]&
       searchNodeRecords, Priority_Queue.SimplePriorityQueue`2[System.Int32,System.Single]&
       openNodes, System.Collections.Generic.HashSet`1[System.Int32]& closedNodes,
-      System.Collections.Generic.List`1[System.Int32]& returnPath) [0x001bc] in /Users/zey/GameAI
-      Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:173 \n  at
-      Tests.AStarTest.TestName () [0x001ad] in /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/Tests/AStarTest.cs:84
+      System.Collections.Generic.List`1[System.Int32]& returnPath) [0x0058f] in /Users/zey/GameAI
+      Assignment 1/Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs:282 \n  at
+      Tests.AStarTest.TestName () [0x001b4] in /Users/zey/GameAI Assignment 1/Assets/Scripts/GameAI/Tests/AStarTest.cs:84
       \n  at (wrapper managed-to-native) System.Reflection.MonoMethod.InternalInvoke(System.Reflection.MonoMethod,object,object[],System.Exception&)\n 
       at System.Reflection.MonoMethod.Invoke (System.Object obj, System.Reflection.BindingFlags
       invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo
@@ -979,7 +986,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 643c0000
     m_LastClickedID: 15460
-    m_ExpandedIDs: 00000000643c000000ca9a3b
+    m_ExpandedIDs: 00000000663c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1007,7 +1014,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000643c0000
+    m_ExpandedIDs: 00000000663c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1084,8 +1091,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -723
-    y: 185
+    x: 1148
+    y: 75
     width: 291
     height: 784
   m_ViewDataDictionary: {fileID: 0}
@@ -1122,8 +1129,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1871
-    y: 185
+    x: 0
+    y: 75
     width: 283
     height: 466
   m_ViewDataDictionary: {fileID: 0}
@@ -1132,7 +1139,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 60edf2ff60eef2ff60eff2ff5cf0f2fffef0f2ff2af2f2ff1af3f2ffbcf3f2ff62f4f2ff62f5f2fff0f6f2ff58f8f2ff0efaf2ffd2fdf2ffc0fef2ff9efff2ff8c00f3ff8801f3ff2202f3ff1803f3ff7804f3ff9805f3ff9c06f3ff3607f3ff8808f3ff7609f3ffc40af3ffb20bf3ffaa0cf3ffa20df3ffa00ef3ffb210f3ffa011f3ff3e12f3ff2613f3ff0c14f3fffc14f3ffe215f3ff2417f3ffc617f3ff7469f5ff5a6af5ffde6af5ffd66bf5ffc46cf5ffbc6df5ff52f4f5ffa6a3f6ff3c5ef9ff7e51fbff
+      m_ExpandedIDs: 70faffff64fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1292,8 +1299,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1587
-    y: 185
+    x: 284
+    y: 75
     width: 862
     height: 466
   m_ViewDataDictionary: {fileID: 0}
@@ -1305,7 +1312,7 @@ MonoBehaviour:
   m_ShowGizmos: 0
   m_TargetDisplay: 0
   m_ClearColor: {r: 0, g: 0, b: 0, a: 0}
-  m_TargetSize: {x: 862, y: 445}
+  m_TargetSize: {x: 1724, y: 890}
   m_TextureFilterMode: 0
   m_TextureHideFlags: 61
   m_RenderIMGUI: 1
@@ -1357,7 +1364,7 @@ MonoBehaviour:
       height: 445
     m_MinimalGUI: 1
   m_defaultScale: 1
-  m_LastWindowPixelSize: {x: 862, y: 466}
+  m_LastWindowPixelSize: {x: 1724, y: 932}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 00000000000000000000
@@ -1384,8 +1391,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: -1871
-    y: 672
+    x: 0
+    y: 562
     width: 1147
     height: 297
   m_ViewDataDictionary: {fileID: 0}

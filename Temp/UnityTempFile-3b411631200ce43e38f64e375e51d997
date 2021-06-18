@@ -1,13 +1,16 @@
 /target:library
 /nowarn:0169
 /nowarn:0649
-/out:"Temp/Tests.dll"
+/out:"Temp/Unity.Rider.Editor.dll"
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:"Library/ScriptAssemblies/GameAIPathPlanning.dll"
+/reference:"Library/ScriptAssemblies/UnityEditor.TestRunner.dll"
+/reference:"Library/ScriptAssemblies/UnityEngine.TestRunner.dll"
+/reference:"Library/ScriptAssemblies/UnityEditor.UI.dll"
+/reference:"Library/ScriptAssemblies/UnityEngine.UI.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -69,17 +72,16 @@
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEditor.dll"
-/reference:"Library/ScriptAssemblies/UnityEngine.TestRunner.dll"
-/reference:"Library/ScriptAssemblies/UnityEditor.TestRunner.dll"
-/reference:"Library/ScriptAssemblies/FastPriorityQueue.dll"
-/reference:"Library/ScriptAssemblies/UnityEditor.UI.dll"
-/reference:"Library/ScriptAssemblies/UnityEngine.UI.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEditor.Graphs.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll"
 /reference:"/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
-/reference:"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
+/reference:"Assets/Plugins/clipper_library.dll"
 /reference:"Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll"
+/reference:"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Tracker.dll"
+/reference:"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.analytics@3.3.5/Unity.Analytics.Editor.dll"
+/reference:"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.analytics@3.3.5/AnalyticsStandardEvents/Unity.Analytics.StandardEvents.dll"
+/reference:"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -297,9 +299,29 @@
 /define:ENABLE_TILEMAP
 /define:ENABLE_TIMELINE
 /define:ENABLE_LEGACY_INPUT_MANAGER
+/define:TEST_FRAMEWORK
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets/Scripts/GameAI/Tests/AStarTest.cs"
-"Assets/Scripts/GameAI/Tests/GridTest.cs"
-"Assets/Scripts/GameAI/Tests/NavmeshTest.cs"
-"Assets/Scripts/GameAI/Tests/PathNetworkTest.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Discovery.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/EditorPluginInterop.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/LoggingLevel.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/PluginSettings.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/PostProcessors/RiderAssetPostprocessor.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/ProjectGeneration/FileIOProvider.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/ProjectGeneration/GUIDProvider.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/ProjectGeneration/ProjectGeneration.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/RiderInitializer.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/RiderScriptEditor.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/RiderScriptEditorData.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/CallbackData.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/CallbackInitializer.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/RiderTestRunner.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/SyncTestRunCallback.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/SyncTestRunEventsHandler.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/TestEvent.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/UnitTesting/TestsCallback.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Util/CommandLineParser.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Util/FileSystemUtil.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Util/LibcNativeInterop.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Util/RiderMenu.cs"
+"/Users/zey/GameAI Assignment 1/Library/PackageCache/com.unity.ide.rider@1.2.1/Rider/Editor/Util/UnityUtils.cs"

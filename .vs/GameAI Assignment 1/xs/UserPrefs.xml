@@ -6,21 +6,21 @@
       <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
       <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
       <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" />
-      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="149" Column="41" />
-      <File FileName="Assets/Scripts/Framework/PathSearch/PathSearchResultType.cs" />
+      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="182" Column="6" />
       <File FileName="Assets/Scripts/Framework/PathSearch/PathSearchNodeRecord.cs" />
       <File FileName="Assets/Scripts/GameAI/Tests/AStarTest.cs" />
       <File FileName="Assets/Scripts/Framework/MoveBall.cs" />
       <File FileName="Assets/Scripts/Framework/PathSearch/BreadthFirstPathSearch.cs" />
       <File FileName="Assets/Scripts/Framework/PathSearch/BasicPathSearchImpl.cs" />
-      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" />
-      <File FileName="Assets/3rdParty/FastPriorityQueue/SimplePriorityQueue.cs" Line="210" Column="1" />
+      <File FileName="Assets/3rdParty/FastPriorityQueue/SimplePriorityQueue.cs" />
+      <File FileName="Assets/Scripts/Framework/Polygon.cs" />
+      <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GameAI Assignment 1" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="3rdParty" expanded="True">
                 <Node name="FastPriorityQueue" expanded="True" />
               </Node>
@@ -31,9 +31,7 @@
                   <Node name="PathSearch" expanded="True" />
                 </Node>
                 <Node name="GameAI" expanded="True">
-                  <Node name="AStar" expanded="True">
-                    <Node name="AStarPathSearchImpl.cs" selected="True" />
-                  </Node>
+                  <Node name="AStar" expanded="True" />
                   <Node name="GridNavigation" expanded="True" />
                   <Node name="Navmesh" expanded="True" />
                   <Node name="PathNetwork" expanded="True" />
@@ -47,7 +45,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="774fe30e-061b-4bc8-bbea-26803915863f" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="84910e42-9f1c-47ba-baf3-8f19fadf6e45" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>

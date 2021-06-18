@@ -1,13 +1,13 @@
 /target:library
 /nowarn:0169
 /nowarn:0649
-/out:"Temp/Assembly-CSharp-firstpass.dll"
+/out:"Temp/Assembly-CSharp.dll"
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:"Library/ScriptAssemblies/GameAIPathPlanning.dll"
+/reference:"Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"/Applications/Unity/Hub/Editor/2019.4.26f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -87,6 +87,7 @@
 /reference:"Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll"
 /reference:"Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll"
 /reference:"Library/ScriptAssemblies/Unity.Rider.Editor.dll"
+/reference:"Library/ScriptAssemblies/GameAIPathPlanning.dll"
 /reference:"Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll"
 /reference:"Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll"
 /reference:"Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll"
@@ -323,4 +324,4 @@
 /define:ENABLE_LEGACY_INPUT_MANAGER
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets/Standard Assets/Utility/FPSCounter.cs"
+"Assets/3rdParty/Gems Ultimate Pack/Scripts/AnimationScript.cs"

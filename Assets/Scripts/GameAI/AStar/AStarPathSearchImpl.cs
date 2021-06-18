@@ -138,9 +138,9 @@ namespace GameAICourse
 			pathResult = PathSearchResultType.InProgress;
 
 
-			closedNodes = new HashSet<int>();
+			//closedNodes = new HashSet<int>();
 
-			returnPath = new List<int>();
+			//returnPath = new List<int>();
 			int nodesExplored = 0;
 	
 	
@@ -160,12 +160,7 @@ namespace GameAICourse
 					currentNodeIndex = val;
 				}
 
-				if (currentNodeIndex == goalNodeIndex)
-				{
-					pathResult = PathSearchResultType.Complete;
-
-					break;
-				}
+				
 
 
 				foreach (int val in openNodes)
@@ -185,10 +180,17 @@ namespace GameAICourse
 					}
 
 				}
+
+				if (currentNodeIndex == goalNodeIndex)
+				{
+					pathResult = PathSearchResultType.Complete;
+
+					break;
+				}
 				//currentNodeIndex = openNodes.Dequeue();
 				//Debug.Log(currentNodeIndex);
 
-				
+
 
 
 				openNodes.Remove(currentNodeIndex);
@@ -236,7 +238,7 @@ namespace GameAICourse
 					}
 				}
 				//Debug.Log("openNodes ***" );
-				//foreach ( int node in openNodes)
+				//foreach ( i5nt node in openNodes)
 				//{
 				//	Debug.Log(node);
 				//}
