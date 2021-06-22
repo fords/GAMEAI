@@ -101,20 +101,7 @@ namespace GameAICourse
 
 
 
-			// The following code is just a placeholder so that the method has a valid return
-			// You will replace it with the correct implementation
-
-			//pathResult = PathSearchResultType.Complete;
-
-			//searchNodeRecords = new Dictionary<int, PathSearchNodeRecord>();
-			//openNodes = new SimplePriorityQueue<int, float>();
-			//closedNodes = new HashSet<int>();
-
-			//returnPath = new List<int>();
-
-			//returnPath.Add(startNodeIndex);
-
-			//return pathResult;
+	
 			if (doInitialization)
 			{
 				currentNodeIndex = startNodeIndex;
@@ -128,7 +115,7 @@ namespace GameAICourse
 				float startingPriority = 0f;
 				openNodes.Enqueue(firstNodeRecord.NodeIndex, startingPriority);
 
-			
+
 
 				returnPath = new List<int>();
 			}
@@ -137,44 +124,18 @@ namespace GameAICourse
 			pathResult = PathSearchResultType.InProgress;
 
 			int nodesExplored = 0;
-	
-	
+
+
 			if (!searchNodeRecords.ContainsKey(currentNodeIndex))
 			{
 				searchNodeRecords[currentNodeIndex] = new PathSearchNodeRecord(currentNodeIndex, -1, 0, H(nodes[currentNodeIndex], nodes[goalNodeIndex]));
 			}
-			
+
 			while (nodesExplored < maxNumNodesToExplore && openNodes.Count > 0)
 			{
-	
+
 				nodesExplored += 1;
-				//currentNodeIndex = startNodeIndex; // current = startIndex with new incremental search attempt
-
-				//foreach (int val in openNodes)
-				//{
-				//	currentNodeIndex = val;
-				//}
-
-				
-
-
-				//foreach (int val in openNodes)
-				//{
-				//	//if (!searchNodeRecords.ContainsKey(val))
-				//	//{
-				//	//	continue;
-				//	//}
-				//	if (searchNodeRecords[val].EstimatedTotalCost + searchNodeRecords[val].CostSoFar <
-				//		searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar ||
-
-				//	(searchNodeRecords[val].EstimatedTotalCost + searchNodeRecords[val].CostSoFar ==
-				//		searchNodeRecords[currentNodeIndex].EstimatedTotalCost + searchNodeRecords[currentNodeIndex].CostSoFar &&
-				//		searchNodeRecords[val].EstimatedTotalCost < searchNodeRecords[currentNodeIndex].EstimatedTotalCost))
-				//	{
-				//		currentNodeIndex = val;
-				//	}
-
-				//}
+	
 				currentNodeIndex = openNodes.Dequeue();
 
 				if (currentNodeIndex == goalNodeIndex)
@@ -183,18 +144,11 @@ namespace GameAICourse
 
 					break;
 				}
-				//currentNodeIndex = openNodes.Dequeue();
-				//Debug.Log(currentNodeIndex);
-
-
-
-
-				//openNodes.Remove(currentNodeIndex);
-
+	
 
 				closedNodes.Add(currentNodeIndex);
 
-				
+
 
 				foreach (int neighbor in edges[currentNodeIndex])
 				{
@@ -217,7 +171,7 @@ namespace GameAICourse
 
 						if (!openNodes.Contains(neighbor))
 						{
-							openNodes.Enqueue(neighbor, searchNodeRecords[neighbor].EstimatedTotalCost+ searchNodeRecords[neighbor].CostSoFar);
+							openNodes.Enqueue(neighbor, searchNodeRecords[neighbor].EstimatedTotalCost + searchNodeRecords[neighbor].CostSoFar);
 						}
 					}
 					else if (costToTravelNeighbor < searchNodeRecords[neighbor].CostSoFar || !openNodes.Contains(neighbor))
@@ -228,7 +182,7 @@ namespace GameAICourse
 
 						if (!openNodes.Contains(neighbor))
 						{
-							openNodes.Enqueue(neighbor , searchNodeRecords[neighbor].EstimatedTotalCost+ searchNodeRecords[neighbor].CostSoFar);
+							openNodes.Enqueue(neighbor, searchNodeRecords[neighbor].EstimatedTotalCost + searchNodeRecords[neighbor].CostSoFar);
 						}
 					}
 				}

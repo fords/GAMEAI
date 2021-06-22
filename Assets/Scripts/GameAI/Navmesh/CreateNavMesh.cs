@@ -92,67 +92,6 @@ namespace GameAICourse
 
 
 
-		//public static bool IntersectsWithComplexPolys(Vector2 a, Vector2 b, List<Polygon> polys)
-		//{
-		//	const int subdivisionSteps = 10;
-
-		//	if (polys == null)
-		//		return false;
-
-		//	bool aOnPoly = false;
-		//	bool bOnPoly = false;
-
-		//	foreach (var poly in polys)
-		//	{
-		//		// Phase I - basic screening
-
-		//		var pts = poly.getPoints();
-		//		if (pts == null)
-		//			continue;
-
-		//		for (int i = 0, j = pts.Length - 1; i < pts.Length; j = i++)
-		//		{
-		//			if (!aOnPoly)
-		//				aOnPoly = a == pts[i];
-
-		//			if (!bOnPoly)
-		//				bOnPoly = b == pts[i];
-
-		//			if (Intersects(a, b, pts[i], pts[j]))
-		//				return true;
-		//		}
-
-		//		// Phase II - now deal with much tougher situation likely
-		//		// if a and b are both vertices of the poly in question
-		//		// (or line formed by a,b perfectly passes through 2 verts
-		//		// of poly)
-
-		//		Vector2 diff = b - a;
-		//		float magnitude = diff.magnitude;
-		//		Vector2 direction = diff.normalized;
-
-		//		float stepSize = magnitude / (float)(subdivisionSteps + 1);
-
-		//		for (int i = 1; i <= subdivisionSteps; ++i)
-		//		{
-		//			Vector2 testPos = a + direction * (i * stepSize);
-
-		//			if (poly.IsPointInsidePolygon(testPos))
-		//			{
-		//				return true;
-		//			}
-		//		}
-
-		//		if (!aOnPoly && poly.IsPointInsidePolygon(a))
-		//			return true;
-
-		//		if (!bOnPoly && poly.IsPointInsidePolygon(b))
-		//			return true;
-		//	}
-
-		//	return false;
-		//}
-
 
 
 		// Create(): Creates a navmesh and pathnetwork (associated with navmesh) 
@@ -324,7 +263,7 @@ namespace GameAICourse
 						bool ispoint23_InObstacle = IsLineSegmentInPolygons(V2, V3, offsetObstPolys);
 						bool ispoint13_InObstacle = IsLineSegmentInPolygons(V3, V1, offsetObstPolys);
 
-		
+
 
 						bool ispoint12_bad = false;
 						if (!ispoint12_InObstacle)
@@ -337,20 +276,15 @@ namespace GameAICourse
 								{
 									if ((Between(V1, V2, pt)))
 									{
-										
+
 										if (V1 != pt && V2 != pt)
 										{
 											ispoint12_bad = true;
-											//break;
+											break;
 										}
 									}
 								}
-								//foreach (Vector2Int obs in obstacleVertices)
-								//if (V1 != obs && V2 != obs)
-								//	if (Between(V1, V2, obs) && (V2 != obs && V1 != obs))
-								//	{
-								//		continue;
-								//	}
+
 							}
 						}
 						if (ispoint12_bad) { continue; }
@@ -365,22 +299,18 @@ namespace GameAICourse
 
 								foreach (Vector2Int pt in temp_pts)
 								{
-									if (Between(V2, V3, pt) )
+									if (Between(V2, V3, pt))
 									{
 										if (V2 != pt && V3 != pt)
-										
+
 										{
 											ispoint23_bad = true;
-											//break;
+											break;
 										}
 									}
 								}
 							}
-							//foreach (Vector2Int obs in obstacleVertices)
-							//	if (Between(V2, V3, obs) && (V2 != obs && V3 != obs))
-							//	{
-							//		continue;
-							//	}
+
 
 						}
 						if (ispoint23_bad) { continue; }
@@ -396,20 +326,16 @@ namespace GameAICourse
 								{
 									if (Between(V3, V1, pt))
 									{
-										
+
 										if (V1 != pt && V3 != pt)
 										{
 											ispoint13_bad = true;
-											//break;
+											break;
 										}
 									}
 								}
 							}
-							//foreach (Vector2Int obs in obstacleVertices)
-							//	if (Between(V3, V1, obs) && (V1 != obs && V3 != obs))
-							//	{
-							//		continue;
-							//	}
+
 
 						}
 						if (ispoint13_bad) { continue; }
