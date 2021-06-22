@@ -1190,14 +1190,14 @@ public class CG
         if (A == null || B == null || A.Length < 3 || B.Length < 3)
             return false;
 
-        if (!CheckForConvexity(A) || !CheckForConvexity(B))
-        {
-            Debug.LogError("Attempt to find convex intersection with non-convex poly(s)!");
-            return false;
-        }
+		if (!CheckForConvexity(A) || !CheckForConvexity(B))
+		{
+			Debug.LogError("Attempt to find convex intersection with non-convex poly(s)!");
+			return false;
+		}
 
-        // look for dividing lines
-        if (!ConvIntersHelper(A, B))
+		// look for dividing lines
+		if (!ConvIntersHelper(A, B))
             return false;
 
         if (!ConvIntersHelper(B, A))

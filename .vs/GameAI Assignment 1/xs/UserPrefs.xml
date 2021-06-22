@@ -1,34 +1,39 @@
 ﻿<Properties StartupConfiguration="{ABAE68E0-BAEB-F714-DC4B-4227A4F2EEA9}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Framework/NavMesh/CommonPolygons.cs">
     <Files>
-      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" Line="53" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" />
+      <File FileName="Assets/Scripts/Framework/NavMesh/ComputationalGeometry.cs" Line="1184" Column="1" IsPinned="True" />
+      <File FileName="Assets/Scripts/GameAI/GridNavigation/CreateGrid.cs" Line="307" Column="26" />
       <File FileName="Assets/Scripts/Config/CustomPresetConfig.cs" />
-      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" />
+      <File FileName="Assets/Scripts/Framework/PresetConfig.cs" Line="79" Column="40" />
       <File FileName="Assets/Scripts/GameAI/Tests/GridTest.cs" />
-      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="182" Column="6" />
+      <File FileName="Assets/Scripts/GameAI/AStar/AStarPathSearchImpl.cs" Line="204" Column="7" />
       <File FileName="Assets/Scripts/Framework/PathSearch/PathSearchNodeRecord.cs" />
-      <File FileName="Assets/Scripts/GameAI/Tests/AStarTest.cs" />
+      <File FileName="Assets/Scripts/GameAI/Tests/AStarTest.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Framework/MoveBall.cs" />
-      <File FileName="Assets/Scripts/Framework/PathSearch/BreadthFirstPathSearch.cs" />
-      <File FileName="Assets/Scripts/Framework/PathSearch/BasicPathSearchImpl.cs" />
-      <File FileName="Assets/3rdParty/FastPriorityQueue/SimplePriorityQueue.cs" />
-      <File FileName="Assets/Scripts/Framework/Polygon.cs" />
-      <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" />
+      <File FileName="Assets/3rdParty/FastPriorityQueue/SimplePriorityQueue.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Framework/Polygon.cs" Line="65" Column="17" />
+      <File FileName="Assets/Scripts/GameAI/Navmesh/CreateNavMesh.cs" Line="671" Column="19" />
+      <File FileName="Assets/Scripts/Framework/NavMesh/NavMesh.cs" Line="159" Column="14" />
+      <File FileName="Assets/Scripts/Framework/GridCase.cs" Line="205" Column="26" />
+      <File FileName="Assets/Scripts/Framework/Utils.cs" Line="927" Column="1" />
+      <File FileName="Assets/Scripts/Framework/VisualizeTriangle.cs" Line="5" Column="31" />
+      <File FileName="Assets/Scripts/GameAI/PathNetwork/CreatePathNetwork.cs" Line="12" Column="59" />
+      <File FileName="Assets/Scripts/Framework/NavMesh/CommonPolygons.cs" Line="6" Column="14" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="GameAI Assignment 1" expanded="True">
-            <Node name="Assets" expanded="True" selected="True">
+            <Node name="Assets" expanded="True">
               <Node name="3rdParty" expanded="True">
                 <Node name="FastPriorityQueue" expanded="True" />
               </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Config" expanded="True" />
                 <Node name="Framework" expanded="True">
-                  <Node name="NavMesh" expanded="True" />
-                  <Node name="PathSearch" expanded="True" />
+                  <Node name="NavMesh" expanded="True">
+                    <Node name="CommonPolygons.cs" selected="True" />
+                  </Node>
                 </Node>
                 <Node name="GameAI" expanded="True">
                   <Node name="AStar" expanded="True" />
@@ -45,7 +50,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
-  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="84910e42-9f1c-47ba-baf3-8f19fadf6e45" />
+  <MonoDevelop.Ide.ItemProperties.FastPriorityQueue PreferredExecutionTarget="60bb4f27-bad3-4553-a1f1-d0a9333d1ea3" />
   <DisabledProjects>
     <String>Assembly-CSharp.csproj</String>
     <String>Assembly-CSharp-firstpass.csproj</String>

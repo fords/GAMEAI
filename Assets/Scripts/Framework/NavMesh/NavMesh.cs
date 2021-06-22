@@ -81,8 +81,8 @@ public class NavMesh : DiscretizedSpaceMonoBehavior
         CreatePathNodeMarkerObjects(PathNodes);
 
         PurgeOutdatedLineViz();
-        CreateVizOffsetPolys(offsetObst); // TODO remove me
-        CreateVizNavMesh();
+		CreateVizOffsetPolys(offsetObst); // TODO remove me
+		CreateVizNavMesh();
         CreateVizTriangles();
         CreateNetworkLines(Utils.ZOffset);
 

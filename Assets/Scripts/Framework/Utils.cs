@@ -213,73 +213,73 @@ public class Utils : MonoBehaviour
     }
 
 
-    //// this is an approximate test specific for use with complex polygons
-    //public static bool IntersectsWithComplexPolys(Vector2 a, Vector2 b, List<Polygon> polys)
-    //{
-    //    const int subdivisionSteps = 10;
+	//// this is an approximate test specific for use with complex polygons
+	//public static bool IntersectsWithComplexPolys(Vector2 a, Vector2 b, List<Polygon> polys)
+	//{
+	//	const int subdivisionSteps = 10;
 
-    //    if (polys == null)
-    //        return false;
+	//	if (polys == null)
+	//		return false;
 
-    //    bool aOnPoly = false;
-    //    bool bOnPoly = false;
+	//	bool aOnPoly = false;
+	//	bool bOnPoly = false;
 
-    //    foreach (var poly in polys)
-    //    {
-    //        // Phase I - basic screening
+	//	foreach (var poly in polys)
+	//	{
+	//		// Phase I - basic screening
 
-    //        var pts = poly.getPoints();
-    //        if (pts == null)
-    //            continue;
+	//		var pts = poly.getPoints();
+	//		if (pts == null)
+	//			continue;
 
-    //        for (int i = 0, j = pts.Length - 1; i < pts.Length; j = i++)
-    //        {
-    //            if (!aOnPoly)
-    //                aOnPoly = a == pts[i];
+	//		for (int i = 0, j = pts.Length - 1; i < pts.Length; j = i++)
+	//		{
+	//			if (!aOnPoly)
+	//				aOnPoly = a == pts[i];
 
-    //            if (!bOnPoly)
-    //                bOnPoly = b == pts[i];
+	//			if (!bOnPoly)
+	//				bOnPoly = b == pts[i];
 
-    //            if (Intersects(a, b, pts[i], pts[j]))
-    //                return true;
-    //        }
+	//			if (Intersects(a, b, pts[i], pts[j]))
+	//				return true;
+	//		}
 
-    //        // Phase II - now deal with much tougher situation likely
-    //        // if a and b are both vertices of the poly in question
-    //        // (or line formed by a,b perfectly passes through 2 verts
-    //        // of poly)
+	//		// Phase II - now deal with much tougher situation likely
+	//		// if a and b are both vertices of the poly in question
+	//		// (or line formed by a,b perfectly passes through 2 verts
+	//		// of poly)
 
-    //        Vector2 diff = b - a;
-    //        float magnitude = diff.magnitude;
-    //        Vector2 direction = diff.normalized;
+	//		Vector2 diff = b - a;
+	//		float magnitude = diff.magnitude;
+	//		Vector2 direction = diff.normalized;
 
-    //        float stepSize = magnitude / (float)(subdivisionSteps + 1);
+	//		float stepSize = magnitude / (float)(subdivisionSteps + 1);
 
-    //        for (int i = 1; i <= subdivisionSteps; ++i)
-    //        {
-    //            Vector2 testPos = a + direction * (i * stepSize);
+	//		for (int i = 1; i <= subdivisionSteps; ++i)
+	//		{
+	//			Vector2 testPos = a + direction * (i * stepSize);
 
-    //            if (poly.IsPointInsidePolygon(testPos))
-    //            {
-    //                return true;
-    //            }
-    //        }
+	//			if (poly.IsPointInsidePolygon(testPos))
+	//			{
+	//				return true;
+	//			}
+	//		}
 
-    //        if (!aOnPoly && poly.IsPointInsidePolygon(a))
-    //            return true;
+	//		if (!aOnPoly && poly.IsPointInsidePolygon(a))
+	//			return true;
 
-    //        if (!bOnPoly && poly.IsPointInsidePolygon(b))
-    //            return true;
-    //    }
+	//		if (!bOnPoly && poly.IsPointInsidePolygon(b))
+	//			return true;
+	//	}
 
-    //    return false;
-    //}
-
-
+	//	return false;
+	//}
 
 
 
-    public static bool Intersects(Vector2 a, Vector2 b, Vector2 c, Vector2 d)
+
+
+	public static bool Intersects(Vector2 a, Vector2 b, Vector2 c, Vector2 d)
     {
         //check if c and d lie on opposite sides of a and b
         //check if a and b lie on opposite sides of c and d
